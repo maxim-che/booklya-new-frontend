@@ -1,0 +1,14 @@
+{
+  "name": "booklya-new-frontend",
+  "description": "New Booklya Frontend",
+  "main": "app.js",
+  "license": "ISC",
+  "homepage": "https://github.com/maxim-che/booklya-new-frontend",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

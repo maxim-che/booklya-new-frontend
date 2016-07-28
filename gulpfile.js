@@ -13,12 +13,17 @@ var bowerPath = './bower_components';
 var express   = require('express');
 var app       = express();
 
-gulp.task('bower:concat', function() {
+gulp.task('js:concat', function() {
   return gulp.src([
       path.join(bowerPath, 'angular', 'angular.js'),
-      path.join(bowerPath, 'underscore', 'underscore.js')
+      path.join(bowerPath, 'underscore', 'underscore.js'),
+      path.join(bowerPath, 'angular-bootstrap', 'ui-bootstrap.js'),
+      path.join(bowerPath, 'angular-bootstrap', 'ui-bootstrap-tpls.js'),
+      path.join(bowerPath, 'angular-ui-router', 'release', 'angular-ui-router.js'),
+
+      path.join(srcPath, 'app.module.js')
     ])
-    .pipe(concat('vendors.js'))
+    .pipe(concat('app.js'))
     .pipe(gulp.dest(path.join(destPath, 'js')));
 });
 
@@ -27,6 +32,7 @@ gulp.task('scss:compile', function() {
     path.join(bowerPath, 'angular', 'angular-csp.css'),
     path.join(bowerPath, 'bootstrap', 'dist', 'css', 'bootstrap.css'),
     path.join(bowerPath, 'bootstrap', 'dist', 'css', 'bootstrap-theme.css'),
+    path.join(bowerPath, 'angular-bootstrap', 'ui-bootstrap-csp.css'),
     path.join(srcPath, 'scss', 'style.scss')
   ])
   .pipe(sass().on('error', sass.logError))
@@ -63,12 +69,13 @@ gulp.task('watch', function() {
   app.use(express.static(destPath));
   app.listen(3000);
   gulp.watch([
+    path.join(srcPath, '**', '*.js'),
     path.join(srcPath, 'scss', '**', '*.scss'),
     path.join(srcPath, 'templates', '**', '*.html'),
     path.join(srcPath, 'templates', '*'),
     path.join(srcPath, 'index.html')
   ], [ 
-    'bower:concat',
+    'js:concat',
     'scss:compile',
     'copy:fonts',
     'copy:src:fonts',
@@ -93,7 +100,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('build', [ 
-  'bower:concat',
+  'js:concat',
   'scss:compile',
   'copy:fonts',
   'copy:src:fonts',

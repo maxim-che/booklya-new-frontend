@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/maxim-che/booklya-new-frontend#readme",
   "dependencies": {
-    "express": "*"
+    "express": "*",
+    "gulp-sass": "*",
+    "gulp-concat": "*",
+    "gulp-copy": "*",
+    "gulp-livereload": "*",
+    "gulp-clean": "*"
   }
 }

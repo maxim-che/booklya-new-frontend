@@ -1,5 +1,6 @@
 'use strict';
 
-angular.module('booklya-main', [
-  'ui.router'
+angular.module('booklya', [
+  'ui.router',
+  'booklya.directives'
 ]);

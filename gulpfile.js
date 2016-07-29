@@ -21,7 +21,11 @@ gulp.task('js:concat', function() {
       path.join(bowerPath, 'angular-bootstrap', 'ui-bootstrap-tpls.js'),
       path.join(bowerPath, 'angular-ui-router', 'release', 'angular-ui-router.js'),
 
-      path.join(srcPath, 'app.module.js')
+      path.join(srcPath, 'app.module.js'),
+      path.join(srcPath, 'app.config.js'),
+      path.join(srcPath, 'services', '*.js'),
+      path.join(srcPath, 'directives', '**', '*.js'),
+      path.join(srcPath, 'controllers', '**', '*.js')
     ])
     .pipe(concat('app.js'))
     .pipe(gulp.dest(path.join(destPath, 'js')));
@@ -56,12 +60,26 @@ gulp.task('copy:src:fonts', function() {
   .pipe(copy(path.join(destPath, 'fonts'), { prefix: 2 }));
 })
 
-gulp.task('copy:templates', function() {
+gulp.task('copy:src:images', function() {
+  return gulp.src([
+    path.join(srcPath, 'img', '*'),
+  ])
+  .pipe(copy(path.join(destPath, 'img'), { prefix: 2 }));
+})
+
+gulp.task('copy:index', function() {
   return gulp.src([
     path.join(srcPath, 'index.html'),
-    path.join(srcPath, 'templates', '*'),
   ])
   .pipe(copy(path.join(destPath), { prefix: 1 }));
+});
+
+gulp.task('copy:templates', function() {
+  return gulp.src([
+    path.join(srcPath, 'views', '**', '*.html'),
+    path.join(srcPath, 'directives', '**', '*.html'),
+  ])
+  .pipe(copy(path.join(destPath, 'views'), { prefix: 3 }));
 });
 
 gulp.task('watch', function() {
@@ -71,15 +89,20 @@ gulp.task('watch', function() {
   gulp.watch([
     path.join(srcPath, '**', '*.js'),
     path.join(srcPath, 'scss', '**', '*.scss'),
-    path.join(srcPath, 'templates', '**', '*.html'),
-    path.join(srcPath, 'templates', '*'),
+    path.join(srcPath, 'img', '**', '*'),
+    path.join(srcPath, 'views', '**', '*.html'),
+    path.join(srcPath, 'services', '*.js'),
+    path.join(srcPath, 'controllers', '**', '*.js'),
+    path.join(srcPath, 'directives', '**', '*'),
     path.join(srcPath, 'index.html')
   ], [ 
     'js:concat',
     'scss:compile',
     'copy:fonts',
     'copy:src:fonts',
-    'copy:templates'
+    'copy:templates',
+    'copy:index',
+    'copy:src:images'
   ]).on('change', reload);
 
   var timer = null;
@@ -104,7 +127,8 @@ gulp.task('build', [
   'scss:compile',
   'copy:fonts',
   'copy:src:fonts',
-  'copy:templates'
+  'copy:templates',
+  'copy:src:images'
 ]);
 
 gulp.task('default', [ 'build', 'watch' ]);

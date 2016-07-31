@@ -1,0 +1,31 @@
+<nav class="navbar navbar-categorymenu navbar-fixed-top">
+  <div class="row">
+  <div class="container-fluid">
+    
+    <!-- Brand and toggle get grouped for better mobile display -->
+<!--     <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" aria-expanded="false">
+        <i class="fa fa-bars fa-2x"></i>
+      </button>
+      <a class="navbar-brand" data-match-route="/"  ui-sref="main"><img src="/img/logo.png" alt=""/></a>
+    </div> -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-collapse {{ collapsed ? 'collapse' : '' }}">
+  
+      <ul class="nav navbar-nav">
+        <li ui-sref-active="active" ng-repeat="item in items">
+          <a data-match-route="/webinar/{{ item.alias }}" ui-sref="webinar.category({ alias: item.alias })">
+            <img class="image-responsive" src="{{ baseUrl }}{{ item.image }}" alt=""/>
+            &nbsp;
+            {{ item.title }}
+          </a>
+        </li>
+      </ul>
+
+  
+    </div><!-- /.navbar-collapse -->
+  
+  </div><!-- /.container-fluid -->
+  </div>
+</nav>

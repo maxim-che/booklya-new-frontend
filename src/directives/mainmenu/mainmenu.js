@@ -1,10 +1,12 @@
-angular.module('booklya.directives', [])
-  .directive('bMainmenu', function() {
+angular.module('booklya.directives')
+  .directive('bkMainmenu', function() {
     
     return {
       templateUrl: '/views/mainmenu.html',
+      restrict:'E',
       scope: {
-        collapsed: '='
+        collapsed: '=',
+        shadow: '='
       },
       link: function(scope, element, attrs) {
 

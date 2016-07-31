@@ -4,3 +4,14 @@
 @import "_mixins";
 @import "fonts";
 @import "mainmenu";
+@import "aboutmenu";
+@import "main_slider";
+@import "categorymenu";
+
+.yellow {
+  color: #FFEE00;
+}
+
+.content {
+  margin-top: $mainmenu-height;
+}

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-mainmenu navbar-fixed-top">
+<nav class="navbar navbar-mainmenu navbar-fixed-top {{ shadow ? 'drop-shadow' : '' }}">
   <div class="container">
     
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -6,17 +6,17 @@
       <button type="button" class="navbar-toggle collapsed" aria-expanded="false">
         <i class="fa fa-bars fa-2x"></i>
       </button>
-      <a class="navbar-brand" href="#"><img src="/img/logo.png" alt=""/></a>
+      <a class="navbar-brand" data-match-route="/"  ui-sref="main"><img src="/img/logo.png" alt=""/></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="navbar-collapse {{ collapsed ? 'collapse' : '' }}">
   
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Вебинары</a></li>
-        <li><a href="#">Консультации</a></li>
-        <li><a href="#">Магазин</a></li>
-        <li><a href="#">Техническая поддержка</a></li>
+        <li ui-sref-active="active"><a data-match-route="/webinar" ui-sref="webinar">Вебинары</a></li>
+        <li ui-sref-active="active"><a data-match-route="/expert" ui-sref="expert">Консультации</a></li>
+        <li ui-sref-active="active"><a data-match-route="/shop" ui-sref="shop">Магазин</a></li>
+        <li ui-sref-active="active"><a data-match-route="/support" ui-sref="support">Техническая поддержка</a></li>
       </ul>
   
       <form class="navbar-form navbar-left search-panel">
@@ -30,8 +30,8 @@
   
 
       <ul class="nav navbar-nav navbar-right user-menu">
-        <li><a href="#">Вход</a></li>
-        <li><a href="#">Регистрация</a></li>
+        <li><a data-match-route="/signin" ui-sref="/signin">Вход</a></li>
+        <li><a data-match-route="/signup" ui-sref="/signup" href="#">Регистрация</a></li>
       </ul>
 
 

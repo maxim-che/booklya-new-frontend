@@ -1,0 +1,121 @@
+.main-slider {
+  width: 98%;
+  overflow: hidden;
+  -webkit-box-shadow: inset 0px 15px 5px -10px rgba(0,0,0,0.15);
+  -moz-box-shadow: inset 0px 15px 5px -10px rgba(0,0,0,0.15);
+  box-shadow: inset 0px 15px 5px -10px rgba(0,0,0,0.15);
+
+  .rn-carousel-controls {
+    -webkit-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    opacity: 0.75;
+    cursor: pointer;
+    .rn-carousel-control-prev {
+      display: block;
+      position: absolute;
+      left: -0.7em;
+      background-image: url('/img/ico-arrow-large.png');
+      width: 31px;
+      height: 72px;
+      z-index: 99;
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+
+    .rn-carousel-control-next {
+      display: block;
+      position: absolute;
+      right: -57em; 
+      background-image: url('/img/ico-arrow-large.png');
+      width: 31px;
+      height: 72px;
+      z-index: 99;     
+
+    }
+    @media (max-width: 1024px) {
+      .rn-carousel-control-next {
+        right: -47em;
+      }
+    }
+  
+  }
+  
+  ul {
+    height: 420px;
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
+    position: relative;
+    -webkit-perspective: 1000px;
+    -ms-perspective: 1000px;
+    perspective: 1000px;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+  }
+
+  li {
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: visible;
+    vertical-align: top;
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: normal;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+  }
+  
+  .layer {
+    width: 100%;
+    height: 410px;
+    padding: 20px;
+    font-family: 'PT Sans Narrow';
+    text-align: right;
+    img {
+      display: block;
+      position: relative;
+      float: left;
+    }
+    @media (max-width: 1024px) {
+      img {
+        max-width: 60%;
+      }
+    }
+    
+    .title {
+      h1 {
+        font-size: 45px;
+      }
+      @media (max-width: 1024px) {
+        h1 {
+          font-size: 35px;
+        }
+      }
+    }
+
+    .text {
+      p {
+        font-size: 17px;
+      }      
+      @media (max-width: 1024px) {
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  
+  }
+
+}

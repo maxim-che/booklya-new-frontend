@@ -2,5 +2,7 @@
 
 angular.module('booklya', [
   'ui.router',
-  'booklya.directives'
+  'booklya.services',
+  'booklya.directives',
+  'angular-carousel'
 ]);

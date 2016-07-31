@@ -1,0 +1,16 @@
+<bk-aboutmenu></bk-aboutmenu>
+
+<div class="container">
+  <div class="main-slider">
+    <ul rn-carousel rn-carousel-controls rn-carousel-auto-slide class="image">
+      <li ng-repeat="slide in slides">
+        <div class="layer">
+          <img class="img-responsive" src="{{ slide.image }}" alt=""/>
+          <div class="title" ng-bind-html="slide.title | sanitize"></div>
+          <div class="text" ng-bind-html="slide.text | sanitize"></div>
+          <a href="{{ slide.url }}">{{ slide.linkText }}</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

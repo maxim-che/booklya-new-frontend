@@ -20,9 +20,15 @@ gulp.task('js:concat', function() {
       path.join(bowerPath, 'angular-bootstrap', 'ui-bootstrap.js'),
       path.join(bowerPath, 'angular-bootstrap', 'ui-bootstrap-tpls.js'),
       path.join(bowerPath, 'angular-ui-router', 'release', 'angular-ui-router.js'),
+      path.join(bowerPath, 'angular-sanitize', 'angular-sanitize.js'),
+      path.join(bowerPath, 'angular-touch', 'angular-touch.js'),
+      path.join(bowerPath, 'angular-carousel', 'dist', 'angular-carousel.js'),
 
       path.join(srcPath, 'app.module.js'),
+      path.join(srcPath, 'app.const.' + process.env.NODE_ENV + '.js'),
       path.join(srcPath, 'app.config.js'),
+      path.join(srcPath, 'app.const.js'),
+      path.join(srcPath, 'app.filters.js'),
       path.join(srcPath, 'services', '*.js'),
       path.join(srcPath, 'directives', '**', '*.js'),
       path.join(srcPath, 'controllers', '**', '*.js')
@@ -85,6 +91,9 @@ gulp.task('copy:templates', function() {
 gulp.task('watch', function() {
   livereload.listen({ port: 35729 });
   app.use(express.static(destPath));
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, destPath, 'index.html'));
+  });
   app.listen(3000);
   gulp.watch([
     path.join(srcPath, '**', '*.js'),
@@ -131,4 +140,13 @@ gulp.task('build', [
   'copy:src:images'
 ]);
 
-gulp.task('default', [ 'build', 'watch' ]);
+gulp.task('set-env-dev', function() {
+    return process.env.NODE_ENV = 'dev';
+});
+
+gulp.task('set-env-prod', function() {
+    return process.env.NODE_ENV = 'prod';
+});
+
+gulp.task('default', [ 'set-env-dev', 'build', 'watch' ]);
+gulp.task('prod', [ 'set-env-prod', 'build', 'watch' ]);

@@ -1,5 +1,7 @@
 'use strict';
 
+moment.locale('ru');
+
 angular.module('booklya', [
   'ui.router',
   'booklya.services',

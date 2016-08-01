@@ -23,6 +23,7 @@ gulp.task('js:concat', function() {
       path.join(bowerPath, 'angular-sanitize', 'angular-sanitize.js'),
       path.join(bowerPath, 'angular-touch', 'angular-touch.js'),
       path.join(bowerPath, 'angular-carousel', 'dist', 'angular-carousel.js'),
+      path.join(bowerPath, 'moment', 'min', 'moment-with-locales.js'),
 
       path.join(srcPath, 'app.module.js'),
       path.join(srcPath, 'app.const.' + process.env.NODE_ENV + '.js'),
@@ -102,7 +103,8 @@ gulp.task('watch', function() {
     path.join(srcPath, 'views', '**', '*.html'),
     path.join(srcPath, 'services', '*.js'),
     path.join(srcPath, 'controllers', '**', '*.js'),
-    path.join(srcPath, 'directives', '**', '*'),
+    path.join(srcPath, 'directives', '**', '*.js'),
+    path.join(srcPath, 'directives', '**', '*.html'),
     path.join(srcPath, 'index.html')
   ], [ 
     'js:concat',

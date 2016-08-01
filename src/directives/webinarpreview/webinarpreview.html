@@ -1,0 +1,76 @@
+<div class="webinar-preview-small" ng-if="!data.isRecomended">
+  
+  <div class="image">
+    <img src="{{ baseUrl }}{{ data.cover }}" alt="{{ data.topic }}"/>
+    <span class="topic">{{ data.topic }}</span>
+  </div>
+  
+  <div class="small-panel">
+      <div class="col-md-3 text-center date">
+        <span class="date">{{ formatDate(data.startDate, 'D MMM') }}</span>
+      </div>
+      <div class="col-md-6 text-center">
+        <span class="price">{{ data.price }}</span><span class="currency">&nbsp;рублей</span>
+      </div>
+      <div class="col-md-3 webinar-link">
+        <a href="#"><img src="/img/ico-arrow-right.png" alt=""/></a>
+      </div>
+  </div>
+
+</div>
+
+<div class="webinar-preview-recomended" ng-if="data.isRecomended">
+  
+  <div class="image">
+    <img src="{{ baseUrl }}{{ data.cover }}" alt="{{ data.topic }}"/>
+  </div>
+  
+  <div class="small-panel">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-2 date-container text-center">
+          <span class="date">{{ formatDate(data.startDate, 'D MMMM') }}</span>
+          <br>
+          <span class="time">{{ formatDate(data.startDate, 'HH:mm') }}&nbsp;-&nbsp;{{ formatDate(data.endDate, 'HH:mm') }}</span>
+        </div>
+        <div class="col-md-10">
+          <div class="row text-center topic">
+            <span class="topic">{{ trimText(data.topic, 30) }}</span>
+          </div>
+          <div class="row controls">
+            <div class="col-md-4">
+              <span>Длительность: {{ formatDate(data.endDate - data.startDate, 'mm') }} мин</span>
+            </div>
+            <div class="col-md-6 text-center">
+              <span class="price">{{ data.price }}</span><span class="currency">&nbsp;рублей</span>
+            </div>
+            <div class="col-md-2 webinar-link">
+              <a href="#"><img src="/img/ico-arrow-right.png" alt=""/></a>
+            </div>          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--   <div class="small-panel">
+    <div class="text-center date-container">
+      <span class="date">{{ formatDate(data.startDate, 'D MMMM') }}</span>
+      <br>
+      <span class="time">{{ formatDate(data.startDate, 'HH:mm') }}&nbsp;-&nbsp;{{ formatDate(data.endDate, 'HH:mm') }}</span>
+    </div>
+    <div class="topic">
+      {{ data.topic }}
+    </div>
+    <div class="controls">
+      <div class="col-md-5">
+        <span>Длительность: {{ formatDate(data.endDate - data.startDate, 'HH:mm') }}</span>
+      </div>
+      <div class="col-md-5">
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div> -->
+
+</div>

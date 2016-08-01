@@ -1,1 +1,26 @@
-dsfdsfds
+<div class="container-full two-menu-shown">
+  <div class="row">
+
+    <div class="col-md-4 category-sidebar">
+      <div class="row">
+        <img class="img-responsive category-cover" ng-if="category.cover" src="{{ baseUrl }}{{ category.cover }}" alt="{{ category.title }}"/>
+        <img class="img-responsive category-cover" ng-if="!category.cover" src="/img/cover-category.jpg" alt="{{ category.title }}"/>
+      </div>
+
+      <div class="row category-title text-left">
+        <h1>
+          <img src="{{ baseUrl }}{{ category.image }}" alt=""/>
+          &nbsp;
+          {{ category.title }}
+        </h1>
+      </div>
+
+      <bk-category-description text="category.text"></bk-category-description>
+
+    </div>
+
+    <div class="col-md-8">
+    </div>
+
+  </div>
+</div>

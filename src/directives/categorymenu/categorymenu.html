@@ -13,13 +13,33 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="navbar-collapse {{ collapsed ? 'collapse' : '' }}">
   
-      <ul class="nav navbar-nav">
-        <li ui-sref-active="active" ng-repeat="item in items">
+      <ul class="nav navbar-nav inline-items">
+        <li ui-sref-active="active" ng-repeat="item in items" on-finish-render="ngRepeatFinished">
           <a data-match-route="/webinar/{{ item.alias }}" ui-sref="webinar.category({ alias: item.alias })">
             <img class="image-responsive" src="{{ baseUrl }}{{ item.image }}" alt=""/>
             &nbsp;
             {{ item.title }}
           </a>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-rigth add-items hidden">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/img/ico-arrow-down.png" alt=""/></a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="item in addItems">
+              <a href="#">            
+                <img class="image-responsive" src="{{ baseUrl }}{{ item.image }}" alt=""/>
+                &nbsp;
+                {{ item.title }}
+              </a>
+            </li>
+<!--             <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li> -->
+          </ul>
         </li>
       </ul>
 

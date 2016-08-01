@@ -1,0 +1,47 @@
+.category-sidebar {
+  
+  .category-cover {
+    width: 100%;
+  }
+
+  .category-description {
+    padding: 30px;
+    font-family: 'PT Sans Narrow';
+    font-size: 15px !important;
+    max-height: 300px;
+    overflow: hidden; 
+    -webkit-transition: max-height 1s; 
+    -moz-transition: max-height 1s; 
+    -ms-transition: max-height 1s; 
+    -o-transition: max-height 1s; 
+    transition: max-height 1s;  
+  }
+
+
+  .bottom-panel {
+    margin-top: 20px;
+  }
+  .more-btn {
+    color: #000;
+    font-family: 'PT Sans Narrow';
+    font-size: 15px;
+
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+.category-title {
+  padding-left: 30px;
+  background-color: #fff;
+  h1 {
+    font-family: 'PT Sans';
+    font-weight: bold;
+    font-size: 27px;
+    margin: 0;
+    line-height: 75px;
+  }
+
+  border-bottom: 1px $category-title-border solid;
+}

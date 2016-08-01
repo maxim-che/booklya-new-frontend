@@ -1,0 +1,15 @@
+<div class="row category-description">
+  <div class="category-text" ng-bind-html="text | sanitize">
+  </div>  
+</div>
+
+<div class="row text-center" ng-if="isOverflow">
+  <div class="bottom-panel">
+    <a class="more-btn" href="#" ng-click="moreClick()">
+      <img src="/img/ico-arrow-right.png" alt=""/>
+      &nbsp;
+      {{ buttonText }}
+    </a>
+  </div>
+</div>
+

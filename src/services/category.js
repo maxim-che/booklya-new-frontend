@@ -14,10 +14,10 @@ function Category($http, apiConfig) {
     })
   }
 
-  this.getWebinarsByAlias = function(alias) {
+  this.getOneByAlias = function(alias) {
     return $http({
       method: 'GET',
-      url: apiConfig.url + 'webinars/category?alias=' + alias 
+      url: apiConfig.url + 'categories/one?alias=' + alias 
     });
   };
 

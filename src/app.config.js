@@ -25,7 +25,7 @@ angular
           controller: 'WebinarCtrl'
         })
         .state('webinar.category', {
-          url: '/webinar/:alias',
+          url: '/:alias',
           templateUrl: '/views/webinars-category.html',
           controller: 'WebinarCtrl'
         })

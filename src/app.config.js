@@ -3,6 +3,8 @@ angular
   .run(['$rootScope', '$injector', '$state', '$stateParams',
     function ($rootScope, $injector, $state, $stateParams) {
 
+      $rootScope._breadcrumbs = [];
+
   }])
   .config(['$provide', '$httpProvider', '$stateProvider', '$urlRouterProvider', '$locationProvider',
     function ($provide, $httpProvider, $stateProvider, $urlRouterProvider, $locationProvider) {

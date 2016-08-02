@@ -1,0 +1,8 @@
+<div class="breadcrumb-container">
+  <div>
+    <ol class="breadcrumb breadcrumb-custom">
+      <li ng-repeat="item in breadcrumbs"><a ui-sref="{{ item.state }}({{ item.params }})">{{ item.title }}</a></li>
+    </ol>
+    <a ng-if="breadcrumbs.length" ui-sref="{{ lastBreadcrumb.state }}({{ lastBreadcrumb.params }})" class="back-btn pull-right"><img src="/img/ico-arrow-right.png" alt=""/>&nbsp;назад</a>
+  </div>
+</div>

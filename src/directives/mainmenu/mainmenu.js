@@ -1,5 +1,5 @@
 angular.module('booklya.directives')
-  .directive('bkMainmenu', function() {
+  .directive('bkMainmenu', [ '$state', function($state) {
     
     return {
       templateUrl: '/views/mainmenu.html',
@@ -10,6 +10,8 @@ angular.module('booklya.directives')
       },
       link: function(scope, element, attrs) {
 
+        scope.$state = $state;
+
         element.children('.navbar-toggle').bind('click', function() {
           scope.collapsed = !scope.collapsed;
           scope.$apply();
@@ -17,4 +19,4 @@ angular.module('booklya.directives')
       }
     }
   
-  });
+  }]);

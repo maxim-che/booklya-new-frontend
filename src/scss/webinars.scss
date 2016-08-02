@@ -22,8 +22,8 @@
       bottom: 56px;
       text-align: center;
       height: 56px;
-      overflow: hidden;
-      text-align: center;
+      // overflow: hidden;
+      text-overflow: clip;
     }
   }
   .small-panel {
@@ -89,6 +89,16 @@
       background-color: $webinar-preview-panel-bg;
       border-bottom: 2px #dddddd solid;
       line-height: 53px;
+      font-size: 18px;
+      .len-number {
+        font-weight: bold;
+        color: $base-yellow;
+      }
+      .price {
+        font-weight: bold;
+        font-size: 24px;
+        color: #109289;
+      }
     }
 
   }

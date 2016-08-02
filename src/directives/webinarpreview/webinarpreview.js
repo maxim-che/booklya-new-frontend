@@ -6,7 +6,8 @@ angular.module('booklya.directives')
       templateUrl: '/views/webinarpreview.html',
 
       scope: {
-        data: '='
+        data: '=',
+        category: '='
       },
 
       restrict:'E',
@@ -15,12 +16,18 @@ angular.module('booklya.directives')
 
         scope.baseUrl = apiConfig.baseUrl;
 
-        scope.trimText = function(text, len) {
+        scope.trimText = function(text, len, dots) {
           if(text.length <= len) {
             return text;
           }
 
-          return text.substring(0, len) + '...';
+          var str = text.substring(0, len);
+
+          if(dots) {
+            str = str + '...';
+          }
+
+          return str;
         };
 
         scope.formatDate = function(date, format) {

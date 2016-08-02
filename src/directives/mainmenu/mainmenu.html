@@ -13,10 +13,10 @@
     <div class="navbar-collapse {{ collapsed ? 'collapse' : '' }}">
   
       <ul class="nav navbar-nav">
-        <li ui-sref-active="active"><a data-match-route="/webinar" ui-sref="webinar">Вебинары</a></li>
-        <li ui-sref-active="active"><a data-match-route="/expert" ui-sref="expert">Консультации</a></li>
-        <li ui-sref-active="active"><a data-match-route="/shop" ui-sref="shop">Магазин</a></li>
-        <li ui-sref-active="active"><a data-match-route="/support" ui-sref="support">Техническая поддержка</a></li>
+        <li ng-class="{ active: $state.includes('webinar') || $state.includes('webinar_details') }"><a ui-sref="webinar">Вебинары</a></li>
+        <li ng-class="{ active: $state.includes('expert') }"><a ui-sref="expert">Консультации</a></li>
+        <li ng-class="{ active: $state.includes('shop') }"><a ui-sref="shop">Магазин</a></li>
+        <li ng-class="{ active: $state.includes('support') }"><a ui-sref="support">Техническая поддержка</a></li>
       </ul>
   
       <form class="navbar-form navbar-left search-panel">

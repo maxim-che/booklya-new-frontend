@@ -28,7 +28,8 @@ angular.module('booklya.directives')
 
       scope: {
         type: '=',
-        items: '='
+        items: '=',
+        category: '='
       },
 
       restrict:'E',

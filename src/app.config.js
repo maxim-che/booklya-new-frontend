@@ -29,4 +29,9 @@ angular
           templateUrl: '/views/webinars-category.html',
           controller: 'WebinarCtrl'
         })
+        .state('webinar_details', {
+          url: '/webinar/:category/:alias',
+          templateUrl: '/views/webinar-details.html',
+          controller: 'WebinarDetailsCtrl'
+        })
   }]);

@@ -1,3 +1,62 @@
 .webinar-details {
   padding-top: $breadcrumbs-height !important;
+  .sidebar {
+    .header {
+      margin-top: 1px;
+      @include gradient-top-bottom;
+      font-family: 'PT Sans Narrow';
+      border-bottom: 1px $border-color solid;
+      padding-top: 20px;
+      padding-right: 30px;
+      padding-left: 30px;
+      padding-bottom: 20px;
+      h1 {
+        color: $button-color;
+        padding: 0;
+        margin: 0;
+      }
+    }
+    .description {
+      font-family: 'PT Sans Narrow';
+      font-style: italic;
+      padding-top: 20px;
+      padding-left: 30px;
+      padding-bottom: 20px;
+      padding-right: 30px;
+    }
+    .price {
+      padding-top: 20px;
+      font-family: 'PT Sans Narrow';
+      span {
+        vertical-align: middle;
+      }
+      .price-number {
+        color: $base-yellow;
+        font-weight: bold;
+        font-size: 30px;
+      }
+    }
+
+  }
+
+
+}
+
+.webinar-info {
+  margin-top: 1px;
+  font-family: 'PT Sans Narrow';
+  @include gradient-left-right;
+  
+  .cover-image {
+    width: 100% !important;
+  }
+  .title {
+    padding-left: 30px; 
+    h2 {
+      font-weight: bold;
+    }
+  }
+  .webinar-content {
+    padding-left: 30px;
+  }
 }

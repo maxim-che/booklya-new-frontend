@@ -1,4 +1,51 @@
 <bk-breadcrumbs></bk-breadcrumbs>
 <div class="container-full webinar-details">
-<h1>Webinar Details</h1>
+  
+    <div class="col-md-4 sidebar">
+      <div class="row">
+        <div class="header">
+          <h1>{{ webinar.topic }}</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="description" ng-bind-html="webinar.description | sanitize"></div>
+      </div>
+      <div class="row">
+        <bk-sidebar-menu items="sidebarMenuItems" current="sidebarMenuItemCurrent"></bk-sidebar-menu>
+      </div>
+      <div class="row">
+        <div class="price text-center">
+          Стоимость вебинара:&nbsp;<span class="price-number">{{ webinar.price }}</span>&nbsp;рублей
+        </div>
+      </div>
+      <dov class="row">
+        <a href="#" class="btn btn-buy col-md-12 col-xs-12">
+          <i class="fa fa-cart-plus"></i>
+          &nbsp;
+          Купить
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-8 webinar-info">
+      <div class="row">
+        <img class="img-responsive cover-image" src="{{ baseUrl }}{{ webinar.cover }}" alt="{{ webinar.topic }}"/>
+      </div>
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row title">
+            <h2>
+              <img src="{{ sidebarMenuItemCurrent.icon }}" alt="{{ sidebarMenuItemCurrent.title }}"/>
+              &nbsp;
+              {{ sidebarMenuItemCurrent.title }}
+            </h2>
+          </div>
+        </div>
+        <div class="webinar-content" ng-bind-html="sidebarMenuItemCurrent.content | sanitize"></div>
+      </div>
+    </div>
+
+
 </div>

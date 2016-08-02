@@ -1,0 +1,11 @@
+<div class="sidebarmenu">
+  <ul class="nav nav-pills nav-stacked">
+    <li ng-repeat="item in items" ng-class="{ active: item.id == current.id }">
+      <a href="#" ng-click="onClick(item)">
+        <img src="{{ item.icon}}" alt="{{ item.title }}"/>
+        &nbsp;
+        {{ item.title }}
+      </a>
+    </li>
+  </ul>
+</div>

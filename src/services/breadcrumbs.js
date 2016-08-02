@@ -12,6 +12,14 @@ function Breadcrumbs($rootScope) {
     var existsItem = _(_breadcrumbs).findWhere({ state: item.state });
     if('undefined' === typeof existsItem) {
       _breadcrumbs.push(item);
+    } else {
+      _(_breadcrumbs).each(function(breadcrumb) {
+        if(breadcrumb.state === item.state) {
+          breadcrumb.title = item.title;
+          breadcrumb.state = item.state;
+          breadcrumb.params = item.params;
+        }
+      });
     }
   };
   

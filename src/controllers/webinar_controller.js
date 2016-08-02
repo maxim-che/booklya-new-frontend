@@ -44,7 +44,7 @@ function WebinarCtrl($scope, $rootScope, $state, Category, Breadcrumbs, apiConfi
             state: 'webinar.category',
             title: $scope.category.title,
             params: $state.params
-          })
+          });
         }, function(res) {
           console.log('ERR >>>>>>>>>>>>>>', res);
         });

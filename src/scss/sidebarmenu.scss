@@ -1,0 +1,39 @@
+.sidebarmenu {
+  @include gradient-top-bottom;
+  font-family: 'PT Sans';
+  font-size: 16px;
+
+  ul {
+    border-top: 1px $border-color-2 solid;
+    li {
+      margin-top: 0px;
+      border-left: 4px $base-blue solid;
+      &.active {
+        &:after {
+          position: absolute;
+          content:"";
+          width:0;
+          height:0;
+          top: 40%;
+          border-right: 6px solid transparent;
+          border-top: 6px solid transparent;
+          border-bottom: 6px solid transparent;
+          border-left: 6px solid $base-blue;
+        }
+        a {
+          background-color: transparent;
+          color: #000;
+          &:hover, &:focus {
+            background-color: transparent;
+            color: #000;
+          }
+        }
+      }
+      
+      a {
+        border-bottom: 1px $border-color-2 solid;
+        color: $gray-color;
+      }
+    }
+  }
+}

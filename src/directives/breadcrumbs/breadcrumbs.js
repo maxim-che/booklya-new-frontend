@@ -12,7 +12,6 @@ angular.module('booklya.directives')
         scope.baseUrl = apiConfig.baseUrl;
         scope.breadcrumbs = Breadcrumbs.all();
         scope.lastBreadcrumb = scope.breadcrumbs[scope.breadcrumbs.length - 1];
-        console.log(scope.lastBreadcrumb)
       }
 
     };

@@ -49,7 +49,17 @@
 
       <div class="col-md-6">
         <div class="row">
-          <bk-profile-schedule data="user" small="true"></bk-profile-schedule>
+          <div class="profile-schedule-small">
+            <div class="schedule-content">
+
+              <div class="header">
+                <h1 class="pull-left"><img src="/img/button-article.png" alt=""/>&nbsp;Расписание</h1>
+                <div class="clearfix"></div>
+              </div>
+
+              <div ui-calendar="calendarConfig" calendar="schedulePreview" ng-model="eventSources"></div>
+            </div>
+          </div>
         </div>
       </div>
 

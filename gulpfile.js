@@ -15,6 +15,12 @@ var app       = express();
 
 gulp.task('js:concat', function() {
   return gulp.src([
+      path.join(bowerPath, 'moment', 'min', 'moment-with-locales.js'),
+      path.join(bowerPath, 'jquery', 'dist', 'jquery.min.js'),
+      path.join(bowerPath, 'fullcalendar', 'dist', 'fullcalendar.min.js'),
+      path.join(bowerPath, 'fullcalendar', 'dist', 'gcal.js'),
+      path.join(bowerPath, 'fullcalendar', 'dist', 'lang', 'ru.js'),
+
       path.join(bowerPath, 'angular', 'angular.js'),
       path.join(bowerPath, 'underscore', 'underscore.js'),
       path.join(bowerPath, 'angular-bootstrap', 'ui-bootstrap.js'),
@@ -24,7 +30,10 @@ gulp.task('js:concat', function() {
       path.join(bowerPath, 'angular-touch', 'angular-touch.js'),
       path.join(bowerPath, 'angular-cookie', 'angular-cookie.js'),
       path.join(bowerPath, 'angular-carousel', 'dist', 'angular-carousel.js'),
-      path.join(bowerPath, 'moment', 'min', 'moment-with-locales.js'),
+
+      // TEMPORARY CALENDAR STUFF
+      path.join(bowerPath, 'angular-ui-calendar', 'src', 'calendar.js'),
+
 
       path.join(srcPath, 'app.module.js'),
       path.join(srcPath, 'app.const.' + process.env.NODE_ENV + '.js'),
@@ -45,6 +54,7 @@ gulp.task('scss:compile', function() {
     path.join(bowerPath, 'bootstrap', 'dist', 'css', 'bootstrap.css'),
     path.join(bowerPath, 'bootstrap', 'dist', 'css', 'bootstrap-theme.css'),
     path.join(bowerPath, 'angular-bootstrap', 'ui-bootstrap-csp.css'),
+    path.join(bowerPath, 'fullcalendar', 'dist', 'fullcalendar.css'),
     path.join(srcPath, 'scss', 'style.scss')
   ])
   .pipe(sass().on('error', sass.logError))

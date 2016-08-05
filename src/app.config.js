@@ -106,7 +106,7 @@ angular
         })
         .state('expert_details.schedule', {
           url: '/schedule',
-          templateUrl: '/views/expert-details-schedule.html',
+          templateUrl: '/views/profile-schedule.html',
           controller: 'ExpertDetailsCtrl'          
         })
         .state('expert_details.articles', {
@@ -116,7 +116,7 @@ angular
         })
         .state('expert_details.feedbacks', {
           url: '/feedbacks',
-          templateUrl: '/views/expert-details-feedbacks.html',
+          templateUrl: '/views/profile-feedbacks.html',
           controller: 'ExpertDetailsCtrl'          
         })
         .state('expert_details.certificates', {

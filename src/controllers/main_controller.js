@@ -8,7 +8,11 @@ angular
 
 function MainCtrl($scope, Common) {
 
-  $scope.slides = Common.getSlides()
+  // Simple template reloading. Need add to injection $templateCache
 
+  // var currentPageTemplate = $state.current.templateUrl;
+  // $templateCache.remove(currentPageTemplate);
+  // $state.current.templateUrl = '/views/asdsadsa.html';
+  // $state.reload();
 
 };

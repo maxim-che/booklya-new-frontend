@@ -1,0 +1,25 @@
+<div class="container-full two-menu-shown">
+  <div class="row experts">
+
+    <div class="col-md-4 col-md-offset-4">
+
+      <div class="search-control">
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="search">Поиск эксперта</label>&nbsp;
+            <input type="text" name="search" class="form-control">
+          </div>
+          &nbsp;
+          <button type="submit" class="btn btn-round"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+
+    </div>
+
+
+    <div class="col-md-12 expert-list text-center">
+      <bk-expert-preview category="category.alias" data="user" ng-repeat="user in category.experts"></bk-expert-preview>
+    </div>
+
+  </div>
+</div>

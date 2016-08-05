@@ -1,0 +1,32 @@
+<div class="profile-articles">
+
+  <div class="row" ng-repeat="article in articles">
+    <div class="col-md-12">
+      <div class="article">
+    
+        <div class="header">
+          <div class="row">
+            <div class="col-md-10">
+              <h1 class="pull-left">{{ article.title }}</h1>
+            </div>
+            <div class="col-md-2">
+              <span class="pull-right" uib-rating ng-model="article.rating" max="5" read-only="true" aria-labelledby="default-rating"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="text" ng-bind-html="trimText(article.text, 300, true) | sanitize"></div>
+
+        <div class="footer">
+          <div class="row">
+            <div class="col-md-6">
+              <span class="views"><i class="fa fa-eye"></i>&nbsp;{{ article.views }}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,47 +1,46 @@
 angular
   .module('booklya')
-  .controller('WebinarCtrl', [ 
+  .controller('ExpertCtrl', [ 
     '$scope',
-    '$rootScope',
     '$state',
+    'Common',
     'Category',
     'Breadcrumbs',
     'apiConfig',
-    WebinarCtrl 
+    ExpertCtrl 
   ]);
 
-function WebinarCtrl($scope, $rootScope, $state, Category, Breadcrumbs, apiConfig) {
+function ExpertCtrl($scope, $state, Common, Category, Breadcrumbs, apiConfig) {
 
   $scope.baseUrl = apiConfig.baseUrl;
-  $scope.category = undefined;
 
   Category.getAll()
     .then(function(res) {
       $scope.categories = res.data;
       if($scope.categories.length && !_($state.params).size()) {
-        $state.go('webinar.category', { alias: $scope.categories[0].alias });
+        $state.go('expert.category', { alias: $scope.categories[0].alias });
       }
     }, function(res) {
       console.log('ERR >>>>>>>>>>>>>>', res);
     });
 
   Breadcrumbs.addItem({
-    state: 'webinar',
-    title: 'Вебинары',
+    state: 'expert',
+    title: 'Эксперты',
     params: $state.params
   });
 
   switch ($state.current.name) {
 
-    case 'webinar':
+    case 'expert':
       break;
 
-    case 'webinar.category':
-      Category.getWebinars($state.params.alias)
+    case 'expert.category':
+      Category.getExperts($state.params.alias)
         .then(function(res) {
           $scope.category = res.data;
           Breadcrumbs.addItem({
-            state: 'webinar.category',
+            state: 'expert.category',
             title: $scope.category.title,
             params: $state.params
           });
@@ -50,7 +49,7 @@ function WebinarCtrl($scope, $rootScope, $state, Category, Breadcrumbs, apiConfi
         });
       break;
 
-    case 'webinar':
+    case 'expert':
     default:
       break;
 

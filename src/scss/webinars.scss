@@ -44,6 +44,7 @@
       color: #109289;
       font-weight: bold;
       font-size: 23px;
+      vertical-align: middle;
     }
     .currency {
       line-height: 30px;
@@ -93,11 +94,13 @@
       .len-number {
         font-weight: bold;
         color: $base-yellow;
+        vertical-align: middle;
       }
       .price {
         font-weight: bold;
         font-size: 24px;
         color: #109289;
+        vertical-align: middle;
       }
     }
 

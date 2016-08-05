@@ -6,6 +6,16 @@
   margin: 0;
   background: #fff;
 
+  .split {
+    display: block;
+    position:absolute;
+    top: 25%;
+    width: 1px;
+    border-right: 1px #e2e2e2 solid;
+    height: 50%;
+    float: right;
+  }
+
   .navbar-nav {
     li.dropdown {
       padding-left: 20px;
@@ -32,7 +42,7 @@
     }
     li:not(.dropdown) {
       &.active, &:hover {
-        @include gradient-bottom-top;
+        // @include gradient-bottom-top;
         -webkit-box-shadow: inset 0px -6px 0px 0px $base-yellow;
         -moz-box-shadow: inset 0px -6px 0px 0px $base-yellow;
         box-shadow: inset 0px -6px 0px 0px $base-yellow;

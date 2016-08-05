@@ -22,6 +22,7 @@ gulp.task('js:concat', function() {
       path.join(bowerPath, 'angular-ui-router', 'release', 'angular-ui-router.js'),
       path.join(bowerPath, 'angular-sanitize', 'angular-sanitize.js'),
       path.join(bowerPath, 'angular-touch', 'angular-touch.js'),
+      path.join(bowerPath, 'angular-cookie', 'angular-cookie.js'),
       path.join(bowerPath, 'angular-carousel', 'dist', 'angular-carousel.js'),
       path.join(bowerPath, 'moment', 'min', 'moment-with-locales.js'),
 

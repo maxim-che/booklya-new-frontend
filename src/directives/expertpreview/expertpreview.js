@@ -1,13 +1,13 @@
 angular.module('booklya.directives')
-  .directive('bkWebinarPreview', [ 'apiConfig', function(apiConfig) {
+  .directive('bkExpertPreview', [ 'apiConfig', function(apiConfig) {
     
     return {
 
-      templateUrl: '/views/webinarpreview.html',
+      templateUrl: '/views/expertpreview.html',
 
       scope: {
-        data: '=',
-        category: '='
+        category: '=',
+        data: '='
       },
 
       restrict:'E',
@@ -20,7 +20,7 @@ angular.module('booklya.directives')
           if('string' !== typeof text) {
             return '';
           }
-                    
+          
           if(text.length <= len) {
             return text;
           }
@@ -33,14 +33,6 @@ angular.module('booklya.directives')
 
           return str;
         };
-
-        scope.formatDate = function(date, format) {
-          return moment(date).format(format);
-        };
-        // scope.$watch('data', function() {
-        //   console.log(scope.data);
-        // });
-
       }
 
     };

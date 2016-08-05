@@ -1,0 +1,30 @@
+<div class="col-md-3">
+  <a ui-sref="expert_details({ category: category, id: data.id })" class="expertpreview">
+    <div class="row">
+      <img class="avatar" src="{{ baseUrl }}{{ data.avatar }}" alt="{{ data.lastName }} {{ data.firstName }}"/>
+    </div>
+    <div class="row">
+      <h3>{{ data.firstName }} {{ data.lastName }}</h3>
+    </div>
+    <div class="row">
+      <span class="tags">{{ trimText(data.tags, 80) }}</span>
+    </div>
+    <div class="row">
+      <span class="description">{{ trimText(data.description, 90) }}</span>
+    </div>
+    <div class="row">
+      <div class="col-md-6 text-right webinars-count">
+        <span class="round-number">
+          {{ data.webinarsCount }}
+        </span>
+        <span>вебинаров</span>
+      </div>
+      <div class="col-md-6 text-left articles-count">
+        <span class="round-number">
+          {{ data.articlesCount }}
+        </span>
+        <span>статьи</span>        
+      </div>
+    </div>
+  </a>
+</div>

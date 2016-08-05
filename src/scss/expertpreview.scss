@@ -1,0 +1,68 @@
+.expertpreview {
+  display: block;
+  background-color: $expert-preview-bg;
+  border-top: 1px #efefef solid;
+  border-left: 1px #efefef solid;
+  border-right: 1px #efefef solid;
+  border-bottom: 2px #dddddd solid;
+  margin: 10px;
+  padding: 25px;
+  width: 100%;
+  height: 300px;
+  
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+
+  .avatar {
+    border-radius: 40px;
+  }
+
+  .tags {
+    font-family: 'PT Sans Narrow';
+    font-style: italic;
+    color: $base-gray;
+    min-height: 50px;
+    display: block;
+  }
+
+  .description {
+    display: block;
+    font-family: 'PT Sans';
+    color: #000;
+    min-height: 56px;
+
+  }
+
+  h3 {
+    font-family: 'PT Sans Narrow';
+    font-weight: bold;
+    color: $base-green;
+    margin-bottom: 0px;
+  }
+
+  .webinars-count, .articles-count {
+    font-family: 'PT Sans Narrow';
+    color: $base-gray;
+    .round-number {
+      background-color: #fff;
+      border: 1px #F2F2F2 solid;
+      color: $base-green;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: block;
+      text-align: center;
+      padding-top: 0px;
+    }
+    span {
+      vertical-align: middle;
+      display: block;
+      float: left;
+      margin-left: 5px;
+      padding-top: 3px;
+    }
+  }
+}

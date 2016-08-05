@@ -12,6 +12,11 @@
 @import "breadcrumbs";
 @import "webinar-details";
 @import "sidebarmenu";
+@import "experts";
+@import "expertpreview";
+@import "user-profile-menu";
+@import "base-profile";
+@import "profile-schedule";
 
 .yellow {
   color: #FFEE00;
@@ -47,5 +52,49 @@ h1 {
   color: #fff;
   &:hover {
     color: #fff;
+  }
+}
+
+.search-control {
+  label {
+    font-family: 'PT Sans Narrow';
+    color: $gray-color-2;
+    font-weight: normal;
+    font-size: 18px;
+  }
+  .btn-round {
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+    background-color: $base-green;
+    color: #fff;
+    padding-left: 10px;
+    padding-top: 4px;
+  }
+}
+
+.round-rating {
+  display: inline-block;
+  background-color: $expert-preview-bg;
+  font-size: 20px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding-left: 7px;
+  padding-top: 2px;
+  &.plus {
+    color: $base-green;
+  }
+  &.minus {
+    color: $base-red;
+  }
+}
+
+.icon-btn {
+  color: #000;
+  text-decoration: none;
+  font-family: 'PT Sans Narrow';
+  &:hover {
+    text-decoration: none;
   }
 }

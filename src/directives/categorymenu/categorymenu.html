@@ -15,11 +15,12 @@
   
       <ul class="nav navbar-nav inline-items">
         <li ui-sref-active="active" ng-repeat="item in items" on-finish-render="ngRepeatFinished">
-          <a data-match-route="/webinar/{{ item.alias }}" ui-sref="webinar.category({ alias: item.alias })">
-            <img class="image-responsive" src="{{ baseUrl }}{{ item.image }}" alt=""/>
+          <a ui-sref="{{ state }}.category({ alias: item.alias })">
+            <img ng-src="{{ baseUrl }}{{ item.image }}" alt=""/>
             &nbsp;
             {{ item.title }}
           </a>
+          <span class="split">&nbsp;</span>
         </li>
       </ul>
 
@@ -29,7 +30,7 @@
           <ul class="dropdown-menu">
             <li ng-repeat="item in addItems">
               <a href="#">            
-                <img class="image-responsive" src="{{ baseUrl }}{{ item.image }}" alt=""/>
+                <img class="image-responsive" ng-src="{{ baseUrl }}{{ item.image }}" alt=""/>
                 &nbsp;
                 {{ item.title }}
               </a>

@@ -14,10 +14,17 @@ function Category($http, apiConfig) {
     })
   }
 
-  this.getOneByAlias = function(alias) {
+  this.getWebinars = function(alias) {
     return $http({
       method: 'GET',
-      url: apiConfig.url + 'categories/one?alias=' + alias 
+      url: apiConfig.url + 'categories/webinars?alias=' + alias 
+    });
+  };
+
+  this.getExperts = function(alias) {
+    return $http({
+      method: 'GET',
+      url: apiConfig.url + 'categories/experts?alias=' + alias 
     });
   };
 

@@ -58,7 +58,10 @@ angular
             var addList = document.querySelector('ul.add-items');
             angular.element(addList).removeClass('hidden');
           }
+
         });
+
+
       }
 
     }

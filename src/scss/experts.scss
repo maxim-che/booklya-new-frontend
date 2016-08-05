@@ -1,0 +1,14 @@
+.experts {
+  border-top: 1px $border-color-2 solid;
+  @include gradient-top-bottom;
+
+  .search-control {
+    margin-top: 20px;
+  }
+
+  .expert-list {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+}

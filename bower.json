@@ -20,6 +20,7 @@
     "angular-ui-router": "^0.3.1",
     "angular-carousel": "^1.0.1",
     "angular-sanitize": "^1.5.8",
-    "moment": "^2.14.1"
+    "moment": "^2.14.1",
+    "angular-cookie": "^4.1.0"
   }
 }

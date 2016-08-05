@@ -4,6 +4,7 @@
   height: $mainmenu-height;
   padding: 0px;
   margin: 0px;
+  z-index: 9999;
 
   &.drop-shadow {
     -webkit-box-shadow: inset 0px -7px 5px -1px rgba(0,0,0,0.22);

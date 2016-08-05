@@ -1,0 +1,31 @@
+<div class="feedbacks">
+  <div class="feedbacks-content">
+  
+    <div class="header">
+      <h1 class="pull-left"><img src="/img/button-article.png" alt=""/>&nbsp;Отзывы</h1>
+      <span class="counter pull-right">Всего отзывов: <span>{{ user.feedbackCount }}</span></span>
+      <div class="clearfix"></div>
+    </div>
+    
+    <div class="feedback-list">
+      <div class="row feedback-list-item" ng-repeat="feedbackItem in user.feedbacks">
+        <div class="col-md-3">
+          <span class="round-rating" ng-class="{ plus: feedbackItem.rating > 0, minus: feedbackItem.rating <= 0 }">
+            <i class="fa fa-minus" ng-if="feedbackItem.rating <= 0"></i>
+            <i class="fa fa-plus" ng-if="feedbackItem.rating > 0"></i>
+          </span>
+        </div>
+        <div class="col-md-9">
+          <span class="title"><u>{{ feedbackItem.user }}</u>&nbsp;&nbsp;<span>{{ formatDate(feedbackItem.date, 'DD.MM.YYYY в HH:mm') }}</span></span>
+          <br>
+          <span class="text"><p ng-bind-html="feedbackItem.text | sanitize"></p></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="feedback-footer text-center">
+      <a href="#" class="icon-btn"><img src="/img/ico-arrow-right.png" alt=""/>&nbsp;Все отзывы</a>
+    </div>
+
+  </div>
+</div>

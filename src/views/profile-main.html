@@ -1,0 +1,61 @@
+<bk-profile-menu items="profileMenuItems"></bk-profile-menu>
+<div class="container-fluid profile">
+
+  <div class="row">
+    
+    <div class="col-md-4 sidebar text-left">
+      <div class="row header">
+        <div class="col-md-4">
+          <img class="avatar" src="{{ baseUrl }}{{ user.avatar }}" alt=""/>
+        </div>
+        <div class="col-md-8">
+          <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+          <span class="tags">{{ user.tags }}</span>
+        </div>
+        <div class="col-md-12">
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <span class="rating">Рейтинг: <span>{{ user.rating }}</span></span>
+            </div>
+            <div class="col-md-6 text-right">
+              <a href="#" class="send-message"><i class="fa fa-envelope-o"></i>&nbsp;Написать</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row about">
+        <div class="col-md-12" ng-bind-html="user.about | sanitize"></div>
+      </div>
+    </div>
+  
+
+
+
+    <div class="col-md-8 profile-content" ui-view>
+      
+      <div class="col-md-6">
+
+        <div class="row">
+          <ng-include src="'/views/profile-feedback-preview.html'"></ng-include>
+        </div>
+
+
+        <div class="row">
+          <ng-include src="'/views/profile-articles-preview.html'"></ng-include>
+        </div>
+
+      </div>
+
+      <div class="col-md-6">
+        <div class="row">
+          <bk-profile-schedule data="user" small="true"></bk-profile-schedule>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,25 @@
+<div class="articles">
+  <div class="articles-content">
+
+    <div class="header">
+      <h1 class="pull-left"><img src="/img/button-article.png" alt=""/>&nbsp;Статьи</h1>
+      <span class="counter pull-right">Всего статей: <span>{{ user.articlesCount }}</span></span>
+      <div class="clearfix"></div>
+    </div>            
+
+    <div class="article-list">
+      <div class="row article-list-item" ng-repeat="article in user.articles">
+        <div class="col-md-12">
+          <span class="title"><span class="label label-warning">{{ formatDate(article.date, 'DD MMMM YYYY') }}</span>&nbsp;&nbsp;{{ article.title }}</span>
+          <br>
+          <span class="text"><p ng-bind-html="trimText(article.text, 140, true) | sanitize"></p></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="feedback-footer text-center">
+      <a href="#" class="icon-btn"><img src="/img/ico-arrow-right.png" alt=""/>&nbsp;Все статьи</a>
+    </div>
+
+  </div>
+</div>

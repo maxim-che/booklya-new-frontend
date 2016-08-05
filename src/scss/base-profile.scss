@@ -1,0 +1,170 @@
+.profile {
+  padding-top: 61px;
+
+  .avatar {
+    border-radius: 50%;
+  }
+
+  .sidebar {
+    .header {
+      @include gradient-bottom-top;
+      padding: 30px;
+      h1 {
+        font-family: 'PT Sans Narrow';
+        color: $base-green;
+        font-size: 30px;
+        font-weight: bold;
+        margin: 0;
+      }
+      .tags {
+        font-family: 'PT Sans Narrow';
+        font-style: italic;
+      }
+
+      .rating {
+        font-family: 'PT Sans Narrow';
+        span {
+          font-weight: bold;
+          color: $base-green;
+        }
+      }
+
+      .send-message {
+        font-family: 'PT Sans Narrow';
+        color: #000;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+    }
+  }
+
+  .about {
+    font-family: 'PT Sans';
+    padding: 30px;
+  }
+
+  .profile-content {
+    @include gradient-left-right;
+
+    .feedbacks, .articles {
+      padding: 20px;
+      .feedbacks-content, .articles-content {
+        -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+        background: #fff;
+        .header {
+          padding: 10px;
+          background: #f6f6f6;
+          h1 {
+            font-family: 'PT Sans Narrow';
+            margin: 0px;
+          }
+          .counter {
+            vertical-align: middle;
+            font-family: 'PT Sans Narrow';
+            line-height: 35px;
+            span {
+              color: $base-green;
+              font-weight: bold;
+            }
+          }
+        }
+
+        .feedback-list, .article-list {
+          padding-right: 20px;
+          .feedback-list-item {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            .round-rating {
+              margin: auto;
+              display: block;
+              margin-top: 25%;
+            }
+          }
+          .title {
+            font-family: 'PT Sans Narrow';
+            color: $base-green;
+            span {
+              color: #000;
+              text-decoration: none !important;
+            }
+          }
+          .text {
+            font-family: 'PT Sans';
+            max-height: 60px;
+            overflow: hidden;
+            display: block;
+            p {
+              text-overflow: ellipsis;
+            }
+          }
+        }
+
+        .feedback-footer {
+          padding: 10px;
+          border-top: 1px $gray-color-4 solid;
+        }
+      }
+
+      .articles-content {
+        .article-list {
+          padding: 20px;
+          .article-list-item {
+            margin-bottom: 20px;
+            .text {
+              min-height: 70px !important;
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+
+  .profile-articles {
+    padding: 20px;
+    .article {
+      background: #fff;
+      border: 1px $gray-color-4 solid;
+      border-bottom: 2px $gray-color-4 solid;
+      margin-bottom: 20px;
+      padding: 10px;
+
+      .header {
+        h1 {
+          font-family: 'PT Sans Narrow';
+          font-size: 30px;
+          color: $base-green;
+          margin: 0;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .text {
+        font-family: 'PT Sans';
+        border-top: 1px $gray-color-4 solid;
+        margin-top: 15px;
+        margin-left: -10px;
+        margin-right: -10px;
+        padding: 20px;
+      }
+
+      .footer {
+        border-top: 1px $gray-color-4 solid;
+        margin-left: -10px;
+        margin-right: -10px;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        .views {
+          font-family: 'PT Sans';
+        }
+      }
+    }
+
+  }
+}

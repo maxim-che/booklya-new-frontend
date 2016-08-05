@@ -1,0 +1,17 @@
+.user-profile-menu {
+  .avatar {
+    border-radius: 50%;
+    border: 1px $gray-color-2 solid;
+    width: 40px;
+  }
+
+  li {
+
+    a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+  }
+
+}

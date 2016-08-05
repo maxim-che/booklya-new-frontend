@@ -1,0 +1,16 @@
+.schedule {
+  padding: 20px;
+}
+
+.fc {
+  background-color: #fff;
+  font-family: 'PT Sans Narrow';
+  .fc-toolbar {
+    padding: 10px;
+    h2 {
+      color: $base-green;
+      font-size: 30px;
+      margin: 0;
+    }
+  }
+}

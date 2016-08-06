@@ -19,7 +19,22 @@
               <span class="rating">Рейтинг: <span>{{ user.rating }}</span></span>
             </div>
             <div class="col-md-6 text-right">
-              <a href="#" class="send-message"><i class="fa fa-envelope-o"></i>&nbsp;Написать</a>
+              <a ng-click="openMessageBox()" href="#" class="send-message"><i class="fa fa-envelope-o"></i>&nbsp;Написать</a>
+            </div>
+          </div>
+          <div class="row"  ng-if="messageBoxOpened">
+            <div class="col-md-12">
+              <br>
+              <form>
+                 <div class="alert {{ messageAlert.class }}" ng-if="messageAlert !== false">{{ messageAlert.text }}</div> 
+                <div class="form-group">
+                  <textarea class="form-control" name="message" ng-model="message.text" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                  <button ng-click="sendMessage()" class="btn btn-primary">Отправить</button>
+                  <button ng-click="cancelMessage()" class="btn btn-danger">Отмена</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

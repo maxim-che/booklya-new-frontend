@@ -104,27 +104,27 @@ angular
         .state('expert_details', {
           url: '/expert/:category/:id',
           templateUrl: '/views/profile-main.html',
-          controller: 'ExpertDetailsCtrl'          
+          controller: 'ProfileCtrl'          
         })
         .state('expert_details.schedule', {
           url: '/schedule',
           templateUrl: '/views/profile-schedule.html',
-          controller: 'ExpertDetailsCtrl'          
+          controller: 'ProfileCtrl'          
         })
         .state('expert_details.articles', {
           url: '/articles',
           templateUrl: '/views/profile-articles.html',
-          controller: 'ExpertDetailsCtrl'          
+          controller: 'ProfileCtrl'          
         })
         .state('expert_details.feedbacks', {
           url: '/feedbacks',
           templateUrl: '/views/profile-feedbacks.html',
-          controller: 'ExpertDetailsCtrl'          
+          controller: 'ProfileCtrl'          
         })
         .state('expert_details.certificates', {
           url: '/certificates',
-          templateUrl: '/views/expert-details-certificates.html',
-          controller: 'ExpertDetailsCtrl'          
+          templateUrl: '/views/profile-certificates.html',
+          controller: 'ProfileCtrl'          
         })
 
   }]);

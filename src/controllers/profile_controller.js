@@ -1,8 +1,9 @@
 angular
   .module('booklya')
-  .controller('ExpertDetailsCtrl', [ 
+  .controller('ProfileCtrl', [ 
     '$scope',
     '$state',
+    '$timeout',
     'Category',
     'Breadcrumbs',
     'Expert',
@@ -11,12 +12,19 @@ angular
     'Feedback',
     'uiCalendarConfig',
     'Helpers',
-    ExpertDetailsCtrl 
+    'Message',
+    ProfileCtrl 
   ]);
 
-function ExpertDetailsCtrl($scope, $state, Category, Breadcrumbs, Expert, apiConfig, Article, Feedback, uiCalendarConfig, Helpers) {
+function ProfileCtrl($scope, $state, $timeout, Category, Breadcrumbs, Expert, apiConfig, Article, Feedback, uiCalendarConfig, Helpers, Message) {
 
   angular.extend($scope, Helpers);
+
+  $scope.messageBoxOpened = false;
+  $scope.message = {
+    text: ''
+  };
+  $scope.messageAlert = false;
 
   $scope.baseUrl = apiConfig.baseUrl;
   $scope.user = {};
@@ -30,6 +38,46 @@ function ExpertDetailsCtrl($scope, $state, Category, Breadcrumbs, Expert, apiCon
     defaultView: 'agendaWeek',
     height: 650
   }
+
+  $scope.openMessageBox = function() {
+    $scope.messageBoxOpened = !$scope.messageBoxOpened;
+  }
+
+  $scope.cancelMessage = function() {
+    $scope.messageBoxOpened = false;
+    $scope.messageAlert = false;
+    $scope.message = '';
+  }
+
+  $scope.sendMessage = function() {
+    if(!$scope.message.text.length) {
+      $scope.messageAlert = {
+        class: 'alert-danger',
+        text: 'Нельзя отправлять пустое сообщение'
+      };
+      return;
+    }
+    Message.create({
+      user: $scope.user.id,
+      text: $scope.message.text
+    }).then(function(res) {
+      $scope.messageAlert = {
+        class: 'alert-success',
+        text: 'Ваше сообщение успешно отправлено'
+      };
+
+      $timeout(function() {
+        $scope.messageAlert = false;
+        $scope.messageBoxOpened = false;
+        $scope.message = '';
+      }, 3000);
+    }, function(res) {
+      $scope.messageAlert = {
+        class: 'alert-danger',
+        text: 'Произошла ошибка. Повторите позже'
+      };
+    })
+  };
 
   $scope.scheduleDataMapping = function(data) {
     var result = []
@@ -135,6 +183,9 @@ function ExpertDetailsCtrl($scope, $state, Category, Breadcrumbs, Expert, apiCon
         }, function(res) {
           console.log('ERR >>>>>>>>>>>>>>', res);
         });
+      break;
+    case 'expert_details.certificates':
+      this.getExpertInfo();
       break;
     default:
       break;    

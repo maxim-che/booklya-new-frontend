@@ -1,0 +1,25 @@
+<div class="feedback-form" ng-if="canSendFeedback">
+
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-primary pull-right" ng-click="openForm()"><i class="fa fa-comment"></i>&nbsp;Оставить отзыв</button>
+    </div>
+  </div>  
+
+  <div class="row" ng-class="{ hidden: formCollapsed, '': !formCollpased }">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="alert {{ alert.class }}" ng-if="alert !== false">{{ alert.text }}</div> 
+      <form>
+        <div class="form-group">
+          <label for="feedback">Оставьте ваш отзыв <span class="required">*</span></label>
+          <textarea class="form-control" rows="5" name="feedback" ng-model="feedbackForm.text"></textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success" ng-click="onSubmit()">Отправить</button>
+          <button class="btn btn-danger" ng-click="onCancel()">Отмена</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

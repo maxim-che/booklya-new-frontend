@@ -9,5 +9,6 @@ angular.module('booklya', [
   'ui.bootstrap',
   'booklya.services',
   'booklya.directives',
-  'angular-carousel'
+  'angular-carousel',
+  'LocalStorageModule'
 ]);

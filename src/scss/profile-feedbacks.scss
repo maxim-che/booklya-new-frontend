@@ -1,0 +1,42 @@
+.profile-feedbacks {
+  padding: 20px;
+  .feedback {
+    background: #fff;
+    border: 1px $gray-color-4 solid;
+    border-bottom: 2px $gray-color-4 solid;
+    margin-bottom: 20px;
+    padding: 10px;
+
+    .header {
+      h1 {
+        font-family: 'PT Sans Narrow';
+        font-size: 30px;
+        color: $base-green;
+        margin: 0;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .text {
+      font-family: 'PT Sans';
+      border-top: 1px $gray-color-4 solid;
+      margin-top: 15px;
+      margin-left: -10px;
+      margin-right: -10px;
+      padding: 20px;
+    }
+
+    .footer {
+      border-top: 1px $gray-color-4 solid;
+      margin-left: -10px;
+      margin-right: -10px;
+      padding-top: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      .views {
+        font-family: 'PT Sans';
+      }
+    }
+  }
+
+}

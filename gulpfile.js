@@ -30,6 +30,7 @@ gulp.task('js:concat', function() {
       path.join(bowerPath, 'angular-touch', 'angular-touch.js'),
       path.join(bowerPath, 'angular-cookie', 'angular-cookie.js'),
       path.join(bowerPath, 'angular-carousel', 'dist', 'angular-carousel.js'),
+      path.join(bowerPath, 'angular-local-storage', 'dist', 'angular-local-storage.js'),
 
       // TEMPORARY CALENDAR STUFF
       path.join(bowerPath, 'angular-ui-calendar', 'src', 'calendar.js'),

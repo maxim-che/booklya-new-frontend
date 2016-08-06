@@ -1,1 +1,34 @@
-<span>dsfds</span>
+<div class="profile-feedbacks">
+
+  <bk-feedback-form to="user.id"></bk-feedback-form>
+
+  <div class="row" ng-repeat="feedback in feedbacks">
+    <div class="col-md-12">
+      <div class="feedback">
+    
+        <div class="header">
+          <div class="row">
+            <div class="col-md-10">
+              <h1 class="pull-left">{{ getUserFullname(feedback.user) }}</h1>
+            </div>
+            <div class="col-md-2">
+              <span class="pull-right" uib-rating ng-model="feedback.rating" max="5" read-only="true" aria-labelledby="default-rating"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="text" ng-bind-html="feedback.text | sanitize"></div>
+
+        <div class="footer">
+          <div class="row">
+            <div class="col-md-6">
+              <span class="views">{{ formatDate(feedback.date, 'DD MMMM YYYY') }}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

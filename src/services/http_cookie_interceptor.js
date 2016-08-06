@@ -5,7 +5,7 @@ angular
       request: function(request) {
         if(request.method !== 'GET') {
           if('undefined' !== typeof request.data && 'undefined' !== typeof ipCookie('sessionID')) {
-            data['sessionID'] = ipCookie('sessionID');
+            request.data['sessionID'] = ipCookie('sessionID');
           }
         } else {
           if(request.url.indexOf(apiConfig.url) !== -1 && 'undefined' !== typeof ipCookie('sessionID')) {

@@ -18,9 +18,15 @@
 @import "base-profile";
 @import "profile-schedule";
 @import "temp-calendar";
+@import "profile-feedbacks";
+@import "feedback-form";
 
 .yellow {
   color: #FFEE00;
+}
+
+.required {
+  color: red;
 }
 
 .container-full {

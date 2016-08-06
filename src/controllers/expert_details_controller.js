@@ -8,14 +8,17 @@ angular
     'Expert',
     'apiConfig',
     'Article',
+    'Feedback',
     'uiCalendarConfig',
     ExpertDetailsCtrl 
   ]);
 
-function ExpertDetailsCtrl($scope, $state, Category, Breadcrumbs, Expert, apiConfig, Article, uiCalendarConfig) {
+function ExpertDetailsCtrl($scope, $state, Category, Breadcrumbs, Expert, apiConfig, Article, Feedback, uiCalendarConfig) {
 
   $scope.baseUrl = apiConfig.baseUrl;
+  $scope.user = {};
   $scope.articles = [];
+  $scope.feedbacks = [];
   $scope.scheduleData = [];
   $scope.eventSources = [$scope.scheduleData];
 
@@ -80,6 +83,13 @@ function ExpertDetailsCtrl($scope, $state, Category, Breadcrumbs, Expert, apiCon
     return moment.unix(date).format(format);
   };
 
+  $scope.getUserFullname = function(user) {
+    if(_(user).isObject()) {
+      return user.firstName + ' ' + user.lastName;
+    }
+    return user;
+  };
+
   $scope.profileMenuItems = [
     {
       id: 0,
@@ -136,6 +146,12 @@ function ExpertDetailsCtrl($scope, $state, Category, Breadcrumbs, Expert, apiCon
       break;
     case 'expert_details.feedbacks':
       this.getExpertInfo();
+      Feedback.getProfileFeedbacks($state.params.id)
+        .then(function(res) {
+          $scope.feedbacks = res.data;
+        }, function(res) {
+          console.log('ERR >>>>>>>>>>>>>>', res);
+        });
       break;
     case 'expert_details.articles':
       this.getExpertInfo();

@@ -52,8 +52,10 @@ angular
         }
       });
   }])
-  .config(['$provide', '$httpProvider', '$stateProvider', '$urlRouterProvider', '$locationProvider',
-    function ($provide, $httpProvider, $stateProvider, $urlRouterProvider, $locationProvider) {
+  .config(['$provide', '$httpProvider', '$stateProvider', '$urlRouterProvider', '$locationProvider', 'localStorageServiceProvider',
+    function ($provide, $httpProvider, $stateProvider, $urlRouterProvider, $locationProvider, localStorageServiceProvider) {
+
+      localStorageServiceProvider.setPrefix('booklya');
 
       $httpProvider.interceptors.push('httpCookieInterceptor');
 

@@ -20,6 +20,8 @@ function ProfileCtrl($scope, $state, $timeout, Category, Breadcrumbs, Expert, ap
 
   angular.extend($scope, Helpers);
 
+  $scope.baseUrl = apiConfig.baseUrl;
+
   $scope.messageBoxOpened = false;
   $scope.message = {
     text: ''

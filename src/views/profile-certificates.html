@@ -1,3 +1,15 @@
-<div class="profile-certificates">
+<div class="profile-certificates" ng-init="fullImage.image = false">
+
+  <div class="gallery">
+    <a href="#" ng-click="fullImage.image = image.full" ng-repeat="image in user.certificates">
+      <img src="{{ baseUrl }}{{ image.preview }}" alt="" class="img-thumbnail"/>
+    </a>
+  </div>
+
+  <div class="row" ng-if="fullImage.image">
+    <div class="col-md-12">
+      <img class="img-responsive" src="{{ baseUrl }}{{ fullImage.image }}" alt="" class="img-rounded">
+    </div>
+  </div>
 
 </div>

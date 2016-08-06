@@ -85,7 +85,6 @@ angular.module('booklya.directives')
                 return id === scope.to;
               });
 
-              console.log(existFeedback);
               if('undefined' === typeof existFeedback) {
                 scope.canSendFeedback = true;
               } else {

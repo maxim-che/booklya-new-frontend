@@ -167,4 +167,15 @@
     }
 
   }
+
+  .profile-certificates {
+    .gallery {
+      padding: 20px;
+      a {
+        &:hover, &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }

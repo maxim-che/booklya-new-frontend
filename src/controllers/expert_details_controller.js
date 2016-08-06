@@ -10,10 +10,13 @@ angular
     'Article',
     'Feedback',
     'uiCalendarConfig',
+    'Helpers',
     ExpertDetailsCtrl 
   ]);
 
-function ExpertDetailsCtrl($scope, $state, Category, Breadcrumbs, Expert, apiConfig, Article, Feedback, uiCalendarConfig) {
+function ExpertDetailsCtrl($scope, $state, Category, Breadcrumbs, Expert, apiConfig, Article, Feedback, uiCalendarConfig, Helpers) {
+
+  angular.extend($scope, Helpers);
 
   $scope.baseUrl = apiConfig.baseUrl;
   $scope.user = {};
@@ -59,35 +62,6 @@ function ExpertDetailsCtrl($scope, $state, Category, Breadcrumbs, Expert, apiCon
 
     });
     return result;
-  };
-
-  $scope.trimText = function(text, len, dots) {
-    if('string' !== typeof text) {
-      return '';
-    }
-
-    if(text.length <= len) {
-      return text;
-    }
-
-    var str = text.substring(0, len);
-
-    if(dots) {
-      str = str + '...';
-    }
-
-    return str;
-  };
-
-  $scope.formatDate = function(date, format) {
-    return moment.unix(date).format(format);
-  };
-
-  $scope.getUserFullname = function(user) {
-    if(_(user).isObject()) {
-      return user.firstName + ' ' + user.lastName;
-    }
-    return user;
   };
 
   $scope.profileMenuItems = [

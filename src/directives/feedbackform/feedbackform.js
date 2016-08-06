@@ -46,7 +46,7 @@ angular.module('booklya.directives')
           Feedback.create(scope.feedbackForm)
             .then(function(res) {
 
-              var storedFeedbacks = localStorageService.get('feebacks');
+              var storedFeedbacks = localStorageService.get('feedbacks');
               if(!storedFeedbacks) {
                 localStorageService.set('feedbacks', [
                   scope.feedbackForm.to
@@ -81,13 +81,27 @@ angular.module('booklya.directives')
           if('undefined' !== typeof $rootScope.userInfo && 'undefined' !== typeof ipCookie('sessionID')) {
             if($rootScope.userInfo.id !== scope.toUser) {
               var storedFeedbacks = localStorageService.get('feedbacks');
-              var existFeedback = _(storedFeedbacks).find(scope.to);
+              var existFeedback = _(storedFeedbacks).find(function(id) {
+                return id === scope.to;
+              });
+
+              console.log(existFeedback);
               if('undefined' === typeof existFeedback) {
                 scope.canSendFeedback = true;
+              } else {
+                scope.canSendFeedback = false;
               }
+            } else {
+              scope.canSendFeedback = false;
             }
+          } else {
+            scope.canSendFeedback = false;
           }
         };
+
+        scope.$watch('to', function() {
+          checkAccess();
+        });
 
         $rootScope.$watch('userInfo', function() {
           checkAccess();

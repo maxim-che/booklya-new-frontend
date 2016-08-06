@@ -23,6 +23,7 @@
     "moment": "^2.14.1",
     "angular-cookie": "^4.1.0",
     "angular-ui-calendar": "^1.0.2",
-    "angular-local-storage": "^0.3.0"
+    "angular-local-storage": "^0.3.0",
+    "angular-ui-bootstrap-datetimepicker": "^1.4.0"
   }
 }

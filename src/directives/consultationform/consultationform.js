@@ -98,7 +98,7 @@ angular.module('booklya.directives')
         };
 
         scope.$watch('user', function() {
-          if('undefined' !== typeof scope.user.subjects) {
+          if('undefined' !== typeof scope.user.subjects && scope.user.subjects.length) {
             scope.form.user = scope.user.id;
             scope.form.subject = scope.user.subjects[0].id;
             scope.changeSubject();

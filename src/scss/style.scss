@@ -20,6 +20,9 @@
 @import "temp-calendar";
 @import "profile-feedbacks";
 @import "feedback-form";
+@import "blog";
+@import "categorymenu_v";
+@import "blog-post";
 
 .yellow {
   color: #FFEE00;
@@ -34,8 +37,12 @@
   width: 100%;
 }
 
+.mainmenu-shown {
+  margin-top: $mainmenu-height;
+}
+
 .two-menu-shown {
-  margin-top: $categorymenu-height;
+  margin-top: $categorymenu-height + $mainmenu-height;
 }
 
 .content {
@@ -129,5 +136,65 @@ h1 {
 form {
   label, input, textarea, select {
     font-family: 'PT Sans Narrow';
+  }
+}
+
+.article {
+  background: $article-preview-bg;
+  border: 1px $gray-color-4 solid;
+  border-bottom: 2px $gray-color-4 solid;
+  margin-bottom: 20px;
+  padding: 10px;
+
+  .header {
+    h1 {
+      font-family: 'PT Sans Narrow';
+      font-size: 30px;
+      color: $base-green;
+      margin: 0;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .text {
+    font-family: 'PT Sans';
+    border-top: 1px $gray-color-4 solid;
+    margin-top: 15px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 20px;
+  }
+
+  .footer {
+    border-top: 1px $gray-color-4 solid;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    .views {
+      font-family: 'PT Sans';
+    }
+  }
+}
+
+.comment {
+  margin-bottom: 20px;
+  border: 1px $gray-color-4 solid;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  h4 {
+    color: $base-green;
+    font-family: 'PT Sans Narrow';
+    margin: 0;
+  }
+  .body {
+    font-family: 'PT Sans';
+    margin-top: 10px;
+    border-top: 1px $gray-color-4 solid;
+    padding: 20px;
   }
 }

@@ -1,0 +1,9 @@
+<div class="blog-post">
+  <div class="article">
+    <div class="header"><h1>{{ article.title }}</h1></div>
+    <div class="text" ng-bind-html="article.text | sanitize"></div>
+  </div>
+  <bk-comments comments="article.comments" type="article" id="article.id"></bk-comments>
+
+</div>
+

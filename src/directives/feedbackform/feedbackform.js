@@ -79,7 +79,7 @@ angular.module('booklya.directives')
 
         var checkAccess = function() {
           if('undefined' !== typeof $rootScope.userInfo && 'undefined' !== typeof ipCookie('sessionID')) {
-            if($rootScope.userInfo.id !== scope.toUser) {
+            if($rootScope.userInfo.id !== scope.to) {
               var storedFeedbacks = localStorageService.get('feedbacks');
               var existFeedback = _(storedFeedbacks).find(function(id) {
                 return id === scope.to;

@@ -1,0 +1,11 @@
+<div class="categorymenu-v">
+  <ul class="nav nav-pills nav-stacked">
+    <li ui-sref-active="active" ng-repeat="item in items" ng-class="{ active: item.id == current.id }">
+      <a ui-sref="{{ state }}.category({ alias: item.alias })">
+        <img src="{{ baseUrl }}{{ item.image}}" alt="{{ item.title }}"/>
+        &nbsp;
+        {{ item.title }}
+      </a>
+    </li>
+  </ul>
+</div>

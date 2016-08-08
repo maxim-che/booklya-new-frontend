@@ -1,0 +1,39 @@
+.categorymenu-v {
+  font-family: 'PT Sans';
+  font-size: 16px;
+  @include gradient-top-bottom;
+
+  ul {
+    border-bottom: 1px $border-color-2 solid;
+    li {
+      margin-top: 0px;
+      border-left: 4px $base-blue solid;
+      &.active {
+        &:after {
+          position: absolute;
+          content:"";
+          width:0;
+          height:0;
+          top: 40%;
+          border-right: 6px solid transparent;
+          border-top: 6px solid transparent;
+          border-bottom: 6px solid transparent;
+          border-left: 6px solid $base-blue;
+        }
+        a {
+          background-color: transparent;
+          color: $base-blue;
+          font-weight: bold;
+          &:hover, &:focus {
+            background-color: transparent;
+            color: $base-blue;
+          }
+        }
+      }
+      
+      a {
+        color: $gray-color;
+      }
+    }
+  }
+}

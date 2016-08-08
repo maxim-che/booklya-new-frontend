@@ -4,10 +4,15 @@ angular.module('booklya.directives')
     return {
       templateUrl: '/views/aboutmenu.html',
       scope: {
-        collapsed: '='
+        collapsed: '=',
+        opened: '='
       },
       restrict:'E',
       link: function(scope, element, attrs) {
+
+        scope.closeAbout = function() {
+          scope.$parent.$parent.aboutOpened = false;
+        }
 
       }
     };

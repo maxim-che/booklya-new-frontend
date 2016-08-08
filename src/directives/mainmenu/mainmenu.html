@@ -14,9 +14,14 @@
   
       <ul class="nav navbar-nav">
         <li ng-class="{ active: $state.includes('webinar') || $state.includes('webinar_details') }"><a ui-sref="webinar">Вебинары</a></li>
-        <li ng-class="{ active: $state.includes('expert') }"><a ui-sref="expert">Консультации</a></li>
+        <li ng-class="{ active: $state.includes('expert') }"><a ui-sref="expert">Эксперты</a></li>
         <li ng-class="{ active: $state.includes('shop') }"><a ui-sref="shop">Магазин</a></li>
-        <li ng-class="{ active: $state.includes('support') }"><a ui-sref="support">Техническая поддержка</a></li>
+        <li ng-class="{ active: $state.includes('blog') }"><a ui-sref="blog">Блоги</a></li>
+        <li>
+          <a href="#" ng-click="toggleAbout()">
+            <img src="/img/ico-arrow-down.png" alt=""/>&nbsp;&nbsp;Другое</a>
+          </a>
+        </li>
       </ul>
   
       <form class="navbar-form navbar-left search-panel">
@@ -41,10 +46,10 @@
             <img class="avatar" src="{{ baseUrl }}{{ $root.userInfo.avatar }}" alt="{{ $root.userInfo.firstName }} {{ $root.userInfo.lastName }}"/>
           </a>
           <ul class="dropdown-menu">
-            <li><a ui-sref="profile">Профиль</a></li>
-            <li><a ui-sref="profile.settings">Настройки</a></li>
-            <li><a ui-sref="profile.balance">Баланс {{ $root.userInfo.balance }} руб.</a></li>
-            <li><a ng-click="onLogout()" href="#">Выход</a></li>
+            <li><a ng-click="onProfileMenuClick()" ui-sref="profile({ id: $root.userInfo.id })">Профиль</a></li>
+            <li><a ng-click="onProfileMenuClick()" ui-sref="profile.settings">Настройки</a></li>
+            <li><a ng-click="onProfileMenuClick()" ui-sref="profile.balance">Баланс {{ $root.userInfo.balance }} руб.</a></li>
+            <li><a ng-click="onProfileMenuClick()" ng-click="onLogout()" href="#">Выход</a></li>
           </ul>
         </li>
       </ul>
@@ -53,3 +58,5 @@
   
   </div><!-- /.container-fluid -->
 </nav>
+
+<bk-aboutmenu ng-if="aboutOpened" opened="aboutOpened"></bk-aboutmenu>

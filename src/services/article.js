@@ -11,7 +11,28 @@ function Article($http, apiConfig) {
     return $http({
       method: 'GET',
       url: apiConfig.url + 'article/profile?id=' + id  
-    })
-  }
+    });
+  };
+
+  this.getNewest = function(id) {
+    return $http({
+      method: 'GET',
+      url: apiConfig.url + 'article/newest' 
+    });
+  };
+
+  this.getFromCategory = function(alias) {
+    return $http({
+      method: 'GET',
+      url: apiConfig.url + 'article/category?alias=' + encodeURIComponent(alias)
+    });
+  };
+
+  this.getByAlias = function(alias) {
+    return $http({
+      method: 'GET',
+      url: apiConfig.url + 'article/one?alias=' + encodeURIComponent(alias) 
+    });
+  };
 
 };

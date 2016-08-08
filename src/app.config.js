@@ -101,6 +101,23 @@ angular
           templateUrl: '/views/expert-category.html',
           controller: 'ExpertCtrl'
         })
+        .state('blog', {
+          url: '/blog',
+          templateUrl: '/views/blog.html',
+          controller: 'BlogCtrl'
+        })
+        .state('blog.category', {
+          url: '/:alias',
+          templateUrl: '/views/blog-category.html',
+          controller: 'BlogCtrl'
+        })
+        .state('blog.post', {
+          url: '/post/:postAlias',
+          templateUrl: '/views/blog-post.html',
+          controller: 'BlogCtrl'
+        })
+
+        // EXPERT PROFILE
         .state('expert_details', {
           url: '/expert/:category/:id',
           templateUrl: '/views/profile-main.html',
@@ -124,6 +141,43 @@ angular
         .state('expert_details.certificates', {
           url: '/certificates',
           templateUrl: '/views/profile-certificates.html',
+          controller: 'ProfileCtrl'          
+        })
+        .state('expert_details.shop', {
+          url: '/shop',
+          templateUrl: '/views/profile-shop.html',
+          controller: 'ProfileCtrl'          
+        })
+
+        // SELF PROFILE ROUTES
+        .state('profile', {
+          url:'/profile/:id',
+          templateUrl: '/views/profile-main.html',
+          controller: 'ProfileCtrl'
+        })
+        .state('profile.schedule', {
+          url: '/schedule',
+          templateUrl: '/views/profile-schedule.html',
+          controller: 'ProfileCtrl'          
+        })
+        .state('profile.articles', {
+          url: '/articles',
+          templateUrl: '/views/profile-articles.html',
+          controller: 'ProfileCtrl'          
+        })
+        .state('profile.feedbacks', {
+          url: '/feedbacks',
+          templateUrl: '/views/profile-feedbacks.html',
+          controller: 'ProfileCtrl'          
+        })
+        .state('profile.certificates', {
+          url: '/certificates',
+          templateUrl: '/views/profile-certificates.html',
+          controller: 'ProfileCtrl'          
+        })
+        .state('profile.shop', {
+          url: '/shop',
+          templateUrl: '/views/profile-shop.html',
           controller: 'ProfileCtrl'          
         })
 

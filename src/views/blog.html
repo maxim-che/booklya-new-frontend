@@ -1,0 +1,17 @@
+<bk-breadcrumbs></bk-breadcrumbs>
+
+<div class="container-full blog">
+
+  <div class="col-md-4 sidebar">
+    <div class="row">
+      <bk-categorymenu-v items="categories"></bk-categorymenu-v>
+    </div>
+  </div>
+
+  <div class="col-md-8 articles-container" ui-view>
+
+    <ng-include src="'/views/articles.html'"></ng-include>
+
+  </div>
+
+</div>

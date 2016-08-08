@@ -1,0 +1,20 @@
+<div class="alert alert-warning" ng-if="!access">Только зарегистрированные пользователи могут оставлять комментарии</div>
+
+<form ng-if="access">
+  <div class="alert {{ alert.class }}" ng-if="alert">{{ alert.text }}</div>
+  <div class="form-group">
+    <textarea name="text" class="form-control" ng-model="form.text" rows="5"></textarea>
+  </div>
+  <div class="form-group text-right">
+    <a href="#" class="btn btn-primary" ng-click="onSubmit()">Отправить</a>
+  </div>
+</form>
+
+<div class="row" ng-repeat="comment in comments">
+  <div class="col-md-12">
+    <div class="comment">
+      <h4>{{ comment.user.firstName }} {{ comment.user.lastName }} <span class="date label label-warning">{{ formatDate(comment.time, 'Do MMMM YYYY') }}</span></h4>
+      <div class="body" ng-bind-html="comment.text | sanitize"></div>
+    </div>
+  </div>
+</div>

@@ -36,5 +36,9 @@ function Helpers(apiConfig) {
     return user;
   };
 
+  this.getBaseState = function(stateName) {
+    var stateParts = stateName.split('.');
+    return stateParts[0];
+  };
 
 };

@@ -8,6 +8,7 @@
         <li ng-class="{ active: isActive(item) }" ng-repeat="item in items">
           <a ui-sref="{{ item.state }}">
             <img height="31" ng-src="{{ item.icon }}" alt=""/>
+            <span class="badge notify-badge" ng-if="item.badge">{{ item.badge }}</span>
             &nbsp;
             {{ item.title }}
           </a>

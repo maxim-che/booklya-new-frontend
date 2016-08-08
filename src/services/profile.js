@@ -1,12 +1,13 @@
 angular.module('booklya.services')
   .service('Profile', [
     '$http',
+    '$state',
     'apiConfig',
     'Helpers',
     Profile
   ]);
 
-function Profile($http, apiConfig, Helpers) {
+function Profile($http, $state, apiConfig, Helpers) {
 
   this.scheduleDataMapping = function(data) {
     var result = []
@@ -47,44 +48,56 @@ function Profile($http, apiConfig, Helpers) {
   this.profileMenuBuild = function(baseState) {
     var baseState = Helpers.getBaseState(baseState);
 
-    var profileMenuItems = [
-      {
-        id: 0,
-        icon: '/img/ico-business-big.png',
-        title: 'Общая информация',
-        state: baseState
-      },
-      {
-        id: 1,
-        icon: '/img/button-calendar3.png',
-        title: 'Расписание',
-        state: baseState + '.schedule'
-      },
-      {
-        id: 2,
-        icon: '/img/button-article.png',
-        title: 'Статьи',
-        state: baseState + '.articles'
-      },
-      {
-        id: 3,
-        icon: '/img/ico-business-big.png',
-        title: 'Отзывы',
-        state: baseState + '.feedbacks'
-      },
-      {
-        id: 4,
-        icon: '/img/ico-law.png',
-        title: 'Сертификаты',
-        state: baseState + '.certificates'
-      },
-      {
-        id: 5,
-        icon: '/img/ico-law.png',
-        title: 'Товары',
-        state: baseState + '.shop'
+    var profileMenuItems = [];
+    profileMenuItems.push({
+      id: 0,
+      icon: '/img/ico-business-big.png',
+      title: 'Общая информация',
+      state: baseState
+    });
+    profileMenuItems.push({
+      id: 1,
+      icon: '/img/button-calendar3.png',
+      title: 'Расписание',
+      state: baseState + '.schedule'
+    });
+    profileMenuItems.push({
+      id: 2,
+      icon: '/img/button-article.png',
+      title: 'Статьи',
+      state: baseState + '.articles'
+    });
+    profileMenuItems.push({
+      id: 3,
+      icon: '/img/ico-business-big.png',
+      title: 'Отзывы',
+      state: baseState + '.feedbacks'
+    });
+
+    Helpers.me($state.params.id, function(me) {
+      if(me) {
+        profileMenuItems.push({
+          id: 6,
+          icon: '/img/ico-business-big.png',
+          title: 'Сообщения',
+          state: baseState + '.messages'
+        });      
       }
-    ];
+    });
+
+    profileMenuItems.push({
+      id: 4,
+      icon: '/img/ico-law.png',
+      title: 'Сертификаты',
+      state: baseState + '.certificates'
+    });
+    profileMenuItems.push({
+      id: 5,
+      icon: '/img/ico-law.png',
+      title: 'Товары',
+      state: baseState + '.shop'
+    });
+    
 
     return profileMenuItems;
   };

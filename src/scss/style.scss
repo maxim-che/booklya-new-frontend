@@ -158,7 +158,6 @@ form {
 
   .text {
     font-family: 'PT Sans';
-    border-top: 1px $gray-color-4 solid;
     margin-top: 15px;
     margin-left: -10px;
     margin-right: -10px;
@@ -166,14 +165,14 @@ form {
   }
 
   .footer {
-    border-top: 1px $gray-color-4 solid;
     margin-left: -10px;
     margin-right: -10px;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
+    font-family: 'PT Sans Narrow';
+    color: #4c4c4c;
     .views {
-      font-family: 'PT Sans';
     }
   }
 }
@@ -197,4 +196,13 @@ form {
     border-top: 1px $gray-color-4 solid;
     padding: 20px;
   }
+}
+
+.notify-badge {
+  background-color: $base-yellow;
+  font-family: 'PT Sans Narrow';
+  color: #000;
+  position: absolute;
+  margin-left: -14px;
+  margin-top: -3px;
 }

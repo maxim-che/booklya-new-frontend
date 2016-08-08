@@ -180,5 +180,10 @@ angular
           templateUrl: '/views/profile-shop.html',
           controller: 'ProfileCtrl'          
         })
+        .state('profile.messages', {
+          url: '/messages',
+          templateUrl: '/views/profile-messages.html',
+          controller: 'ProfileCtrl'
+        })
 
   }]);

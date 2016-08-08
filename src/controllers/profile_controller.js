@@ -13,10 +13,12 @@ angular
     'uiCalendarConfig',
     'Helpers',
     'Message',
+    'ipCookie',
+    '$rootScope',
     ProfileCtrl 
   ]);
 
-function ProfileCtrl($scope, $state, $timeout, Category, Breadcrumbs, Profile, apiConfig, Article, Feedback, uiCalendarConfig, Helpers, Message) {
+function ProfileCtrl($scope, $state, $timeout, Category, Breadcrumbs, Profile, apiConfig, Article, Feedback, uiCalendarConfig, Helpers, Message, ipCookie, $rootScope) {
 
   angular.extend($scope, Helpers);
 
@@ -26,6 +28,7 @@ function ProfileCtrl($scope, $state, $timeout, Category, Breadcrumbs, Profile, a
   $scope.message = {
     text: ''
   };
+  $scope.messages = [];
   $scope.messageAlert = false;
 
   $scope.baseUrl = apiConfig.baseUrl;
@@ -40,6 +43,19 @@ function ProfileCtrl($scope, $state, $timeout, Category, Breadcrumbs, Profile, a
     defaultView: 'agendaWeek',
     height: 650
   }
+
+  $scope.messageBoxes = [
+    {
+      id: 'incoming',
+      title: 'Входящие'
+    },
+    {
+      id: 'outgoing',
+      title: 'Исходящие'
+    }
+  ];
+
+  $scope.profileMenuItems = Profile.profileMenuBuild($state.current.name);
 
   $scope.openMessageBox = function() {
     $scope.messageBoxOpened = !$scope.messageBoxOpened;
@@ -71,7 +87,7 @@ function ProfileCtrl($scope, $state, $timeout, Category, Breadcrumbs, Profile, a
       $timeout(function() {
         $scope.messageAlert = false;
         $scope.messageBoxOpened = false;
-        $scope.message = '';
+        $scope.message.text = '';
       }, 3000);
     }, function(res) {
       $scope.messageAlert = {
@@ -81,8 +97,6 @@ function ProfileCtrl($scope, $state, $timeout, Category, Breadcrumbs, Profile, a
     })
   };
 
-  $scope.profileMenuItems = Profile.profileMenuBuild($state.current.name);
-
   this.getProfileInfo = function(callback) {
     Profile.getOne($state.params.id)
       .then(function(res) {
@@ -91,6 +105,12 @@ function ProfileCtrl($scope, $state, $timeout, Category, Breadcrumbs, Profile, a
           if('undefined' !== typeof callback) {
             callback();
           }
+
+          if('undefined' !== typeof res.data.messageCount && res.data.messageCount !== 0) {
+            var messageMenuItem = _($scope.profileMenuItems).findWhere({ id: 6 });
+            messageMenuItem.badge = 6;
+          }
+
       }, function(res) {
         console.log('ERR >>>>>>>>>>>>>>', res);
       });
@@ -143,6 +163,14 @@ function ProfileCtrl($scope, $state, $timeout, Category, Breadcrumbs, Profile, a
       this.getProfileInfo();
       break;
 
+    case 'profile.messages':
+      this.getProfileInfo();
+      Message.getIncoming()
+        .then(function(res) {
+          $scope.messages = res.data;
+        }, function(res) {
+          console.log('ERR >>>>>>>>>>>>>>', res);
+        });
       
     default:
       break;    

@@ -1,11 +1,13 @@
 angular.module('booklya.services')
   .service('Helpers', [
-    '$http',
     'apiConfig',
+    '$rootScope',
+    'ipCookie',
+    'Auth',
     Helpers
   ]);
 
-function Helpers(apiConfig) {
+function Helpers(apiConfig, $rootScope, ipCookie, Auth) {
 
   this.trimText = function(text, len, dots) {
     if('string' !== typeof text) {
@@ -40,5 +42,39 @@ function Helpers(apiConfig) {
     var stateParts = stateName.split('.');
     return stateParts[0];
   };
+
+  this.updateUserInfo = function(callback) {
+    return Auth.userInfo(ipCookie('sessionID'))
+      .then(function(res) {
+        $rootScope.userInfo = res.data;
+        callback()
+      }, function(res) {
+
+      });
+  }
+
+  this.me = function(id, callback) {
+    var result = false;
+    if('undefined' !== typeof ipCookie('sessionID')) {
+      if('undefined' === typeof $rootScope.userInfo) {
+        this.updateUserInfo(function() {
+          if($rootScope.userInfo.id === id) {
+            result = true;
+          } else {
+            result = false;
+          }
+          callback(result);
+        });        
+      } else {
+          if($rootScope.userInfo.id === id) {
+            result = true;
+          } else {
+            result = false;
+          }        
+      }
+    }
+
+    callback(result);
+  }
 
 };

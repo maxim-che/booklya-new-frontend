@@ -15,4 +15,18 @@ function Message($http, apiConfig) {
     }); 
   };
 
+  this.getIncoming = function() {
+    return $http({
+      method: 'GET',
+      url: apiConfig.url + 'messages/incoming'
+    }); 
+  };
+
+  this.getOutgoing = function() {
+    return $http({
+      method: 'GET',
+      url: apiConfig.url + 'messages/outgoing'
+    }); 
+  };
+
 };

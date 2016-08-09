@@ -28,7 +28,12 @@ angular.module('booklya.directives')
               element.css('position', 'absolute');
               element.css('z-index', '999');
               angular.element(textContainer).css('overflow', 'auto');
-              angular.element(textContainer).height(angular.element(textHeight).height() / 2);
+              var newHeight = angular.element(textHeight).height() / 2;
+
+              if(newHeight < angular.element(textContainer).height()) {
+                newHeight = angular.element(textHeight).height();
+              }
+              angular.element(textContainer).height(newHeight - 1);
 
             } else {
               element.css('position', 'static');

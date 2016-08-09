@@ -17,8 +17,14 @@
     </div>
 
 
-    <div class="col-md-12 expert-list text-center">
+<!--     <div class="col-md-12 expert-list text-center">
       <bk-expert-preview category="category.alias" data="user" ng-repeat="user in category.experts"></bk-expert-preview>
+    </div>
+ -->
+    <div uib-carousel active="active" class="bk-slider">
+      <div uib-slide ng-repeat="slide in experts" index="$index">
+        <bk-expert-preview category="category.alias" data="user" ng-repeat="user in slide"></bk-expert-preview>
+      </div>
     </div>
 
   </div>

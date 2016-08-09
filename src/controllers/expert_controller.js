@@ -7,12 +7,16 @@ angular
     'Category',
     'Breadcrumbs',
     'apiConfig',
+    'Helpers',
     ExpertCtrl 
   ]);
 
-function ExpertCtrl($scope, $state, Common, Category, Breadcrumbs, apiConfig) {
+function ExpertCtrl($scope, $state, Common, Category, Breadcrumbs, apiConfig, Helpers) {
+
+  angular.extend($scope, Helpers);
 
   $scope.baseUrl = apiConfig.baseUrl;
+  $scope.experts = [];
 
   Category.getAll()
     .then(function(res) {
@@ -39,6 +43,7 @@ function ExpertCtrl($scope, $state, Common, Category, Breadcrumbs, apiConfig) {
       Category.getExperts($state.params.alias)
         .then(function(res) {
           $scope.category = res.data;
+          $scope.experts = $scope.simpleSlideGrid(8, $scope.category.experts);
           Breadcrumbs.addItem({
             state: 'expert.category',
             title: $scope.category.title,

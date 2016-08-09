@@ -117,4 +117,19 @@ function Helpers(apiConfig, $rootScope, ipCookie, Auth) {
 
     return result;        
   };
+
+  this.simpleSlideGrid = function(limit, collection) {
+    var slides = [];
+
+    var slide = [];
+    _(collection).each(function(item) {
+      if(slide.length === limit) {
+        slides.push(slide);
+        slide = [];
+      }
+      slide.push(item);
+    });
+
+    return slides;
+  };
 };

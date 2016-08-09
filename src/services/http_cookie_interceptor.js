@@ -1,6 +1,6 @@
 angular
   .module('booklya')
-  .factory('httpCookieInterceptor', function ($rootScope, apiConfig, ipCookie) {
+  .factory('httpCookieInterceptor',['$rootScope', 'apiConfig', 'ipCookie', function ($rootScope, apiConfig, ipCookie) {
     return {
       request: function(request) {
         if(request.method !== 'GET') {
@@ -22,4 +22,4 @@ angular
         return response;
       }
     };
-  });
+  }]);

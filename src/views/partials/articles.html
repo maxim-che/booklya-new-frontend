@@ -1,7 +1,7 @@
 <div class="row" ng-repeat="article in articles">
   <div class="col-md-12">
-    <div class="article">
-  
+    <div class="article" ng-if="!article.cover">
+
       <div class="header">
         <div class="row">
           <div class="col-md-12">
@@ -23,5 +23,36 @@
       </div>
 
     </div>
+
+    <div class="article" ng-if="article.cover">
+      <div class="col-md-3">
+        <div class="row">
+          <img src="{{ baseUrl }}{{ article.cover }}" alt="" class="img-responsive"/>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="header">
+          <div class="row">
+            <div class="col-md-12">
+              <a ui-sref="blog.post({ postAlias: article.seo.alias })"><h1 class="pull-left">{{ article.title }}</h1></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text" ng-bind-html="trimText(article.text, 300, true) | sanitize"></div>
+
+        <div class="footer">
+          <div class="row">
+            <div class="col-md-12 text-right">
+              <span class="views"><i class="fa fa-eye"></i>&nbsp;{{ article.views }}</span>
+              &nbsp;
+              <span class="comments"><i class="fa fa-comment"></i>&nbsp;{{ article.comments.length }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
   </div>
 </div>

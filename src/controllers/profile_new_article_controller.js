@@ -62,6 +62,14 @@ function ProfileNewArticleCtrl($scope, $state, Article, Profile, Category, Helpe
   };
 
   $scope.onSubmit = function() {
+    if(!$scope.form.cover.length) {
+      $scope.alert = {
+        class: 'alert-danger',
+        text: 'Статья обязательно должна иметь обложку. Пожалуйтса, загрузите изображеине'
+      };
+      return;
+    }
+
     if(!$scope.form.title.length) {
       $scope.alert = {
         class: 'alert-danger',

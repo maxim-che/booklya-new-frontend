@@ -1,5 +1,5 @@
 angular.module('booklya.directives')
-  .directive('bkImageUploader', [ function() {
+  .directive('bkImageUploader', [ '$timeout', function($timeout) {
     
     return {
 
@@ -58,18 +58,27 @@ angular.module('booklya.directives')
           fileReader.readAsDataURL(file);
         });
 
+        var img = document.querySelector('.image-crop-final');
+
         scope.saveImage = function() {
           scope.initCrop = true;
-        };
+          var img = document.querySelector('.image-crop-final');
+          img.onload = function() {
+            scope.cover = this.src;
+            scope.$apply();
+          };
+       };
 
-        scope.$watch('imageData', function() {
-          scope.cover = scope.imageData;
-        });
+        fileReader.onload = function(e) {
+          scope.imageData = e.target.result;
+          scope.$apply();
+        };
 
         scope.cancelImage = function() {
           scope.imageData = '';
           scope.imageCropResult = null;
           scope.imageCropStep = 1;
+          scope.initCrop = false;
         };
 
         scope.onClick = function() {

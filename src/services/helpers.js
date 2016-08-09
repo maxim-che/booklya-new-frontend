@@ -123,11 +123,11 @@ function Helpers(apiConfig, $rootScope, ipCookie, Auth) {
 
     var slide = [];
     _(collection).each(function(item) {
+      slide.push(item);
       if(slide.length === limit) {
         slides.push(slide);
         slide = [];
       }
-      slide.push(item);
     });
 
     return slides;

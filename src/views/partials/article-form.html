@@ -1,0 +1,55 @@
+<form>
+
+  <div class="alert {{ alert.class }}" ng-if="alert">{{ alert.text }}</div>
+
+  <div class="row">
+    
+    <div class="col-md-4">
+      <bk-image-uploader width="260" height="275" cover="form.cover"></bk-image-uploader>
+    </div>
+    
+    <div class="col-md-8">
+      <div class="form-group">
+        <label for="category">Категория</label>
+        <select class="form-control" name="category" ng-options="item.id as item.title for item in categories" ng-model="form.subjectCategory" ng-change="onCategoryChange()"></select>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Тема</label>
+        <select class="form-control" name="subject" ng-options="item.id as item.title for item in subjects" ng-model="form.subject"></select>
+      </div>
+
+      <div class="form-group">
+        <label for="title">Заголовок <span class="required">*</span></label>
+        <input type="text" name="title" ng-model="form.title" class="form-control" ng-change="onChangeTitle()"/>
+      </div>
+
+      <div class="form-group">
+        <label for="alias">Псевдоним</label>
+        <input type="text" name="alias" ng-model="form.seo.alias" class="form-control" readonly/>
+      </div>
+    </div>
+  
+  </div>
+
+  <div class="form-group">
+    <label for="keywords">Ключевые слова</label>
+    <input type="text" name="keywords" ng-model="form.seo.keywords" class="form-control"/>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Описание</label>
+    <textarea type="text" name="description" ng-model="form.seo.description" class="form-control" rows="3"></textarea>
+  </div>
+
+  <div class="form-group">
+    <text-angular ng-model="form.text"></text-angular>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <a href="#" class="btn btn-base-green" ng-click="onSubmit()">Добавить</a>
+    </div>
+  </div>
+
+</form>

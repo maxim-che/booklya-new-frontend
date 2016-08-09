@@ -1,0 +1,22 @@
+<div class="feedback" ng-click="toggleView()">
+
+  <div class="row">
+    <div class="col-md-3">
+      <span class="round-rating" ng-class="{ plus: feedback.rating > 0, minus: feedback.rating <= 0 }">
+        <i class="fa fa-minus" ng-if="feedback.rating <= 0"></i>
+        <i class="fa fa-plus" ng-if="feedback.rating > 0"></i>
+      </span>
+    </div>
+
+    <div class="col-md-9">
+      <div class="header">
+        <span class="name">{{ getUserFullname(feedback.user) }}</span>
+        <span class="time">{{ formatDate(feedback.date, 'DD.MM.YYYY в HH:mm') }}</span>
+      </div>
+      <div class="text">
+        <div class="feedback-content" ng-bind-html="feedback.text | sanitize"></div>
+      </div>
+    </div>
+  </div>
+
+</div>

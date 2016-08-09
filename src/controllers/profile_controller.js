@@ -24,6 +24,12 @@ function ProfileCtrl($scope, $state, $timeout, Category, Breadcrumbs, Profile, a
 
   $scope.baseUrl = apiConfig.baseUrl;
 
+  $scope.access = false;
+
+  $scope.me($state.params.id, function(result) {
+    $scope.access = result;
+  });
+
   $scope.messageBoxOpened = false;
   $scope.message = {
     text: ''
@@ -150,7 +156,9 @@ function ProfileCtrl($scope, $state, $timeout, Category, Breadcrumbs, Profile, a
           console.log('ERR >>>>>>>>>>>>>>', res);
         });
       break;
-
+    case 'profile.articles.new':
+      this.getProfileInfo();
+      break;
 
     case 'expert_details.certificates':
     case 'profile.certificates':

@@ -165,6 +165,11 @@ angular
           templateUrl: '/views/profile-articles.html',
           controller: 'ProfileCtrl'          
         })
+        .state('profile.articles.new', {
+          url: '/new',
+          templateUrl: '/views/profile-new-article.html',
+          controller: 'ProfileNewArticleCtrl' 
+        })
         .state('profile.feedbacks', {
           url: '/feedbacks',
           templateUrl: '/views/profile-feedbacks.html',

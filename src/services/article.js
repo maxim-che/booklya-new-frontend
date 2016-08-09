@@ -35,4 +35,12 @@ function Article($http, apiConfig) {
     });
   };
 
+  this.create = function(data) {
+    return $http({
+      method: 'POST',
+      data: data,
+      url: apiConfig.url + 'article/create'
+    });
+  };
+
 };

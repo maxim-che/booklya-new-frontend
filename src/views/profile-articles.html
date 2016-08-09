@@ -1,5 +1,8 @@
 <div class="profile-articles">
 
-  <ng-include src="'/views/articles.html'"></ng-include>
+  <div class="row" ui-view>
+    <a ng-if="access" ui-sref="profile.articles.new({ id: user.id })" class="btn btn-base-green pull-right"><i class="fa fa-plus"></i>&nbsp;добавить статью</a>
+    <ng-include src="'/views/articles.html'"></ng-include>
+  </div>
 
 </div>

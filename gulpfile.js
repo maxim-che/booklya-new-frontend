@@ -29,8 +29,16 @@ gulp.task('js:concat', function() {
       path.join(bowerPath, 'angular-sanitize', 'angular-sanitize.js'),
       path.join(bowerPath, 'angular-touch', 'angular-touch.js'),
       path.join(bowerPath, 'angular-cookie', 'angular-cookie.js'),
-      path.join(bowerPath, 'angular-carousel', 'dist', 'angular-carousel.js'),
       path.join(bowerPath, 'angular-local-storage', 'dist', 'angular-local-storage.js'),
+      path.join(bowerPath, 'angular-animate', 'angular-animate.js'),
+
+      // textAngular
+      path.join(bowerPath, 'textAngular', 'dist', 'textAngular-rangy.min.js'),
+      path.join(bowerPath, 'textAngular', 'dist', 'textAngular-sanitize.min.js'),
+      path.join(bowerPath, 'textAngular', 'dist', 'textAngular.min.js'),
+
+      // ImageCrop
+      path.join(bowerPath, 'angular-image-crop', 'image-crop.js'),
 
       // TEMPORARY CALENDAR STUFF
       path.join(bowerPath, 'angular-ui-calendar', 'src', 'calendar.js'),
@@ -56,6 +64,13 @@ gulp.task('scss:compile', function() {
     path.join(bowerPath, 'bootstrap', 'dist', 'css', 'bootstrap-theme.css'),
     path.join(bowerPath, 'angular-bootstrap', 'ui-bootstrap-csp.css'),
     path.join(bowerPath, 'fullcalendar', 'dist', 'fullcalendar.css'),
+
+    // textAngular
+    path.join(bowerPath, 'textAngular', 'dist', 'textAngular.css'),
+
+    // ImageCrop
+    path.join(bowerPath, 'angular-image-crop', 'image-crop-styles.css'),
+
     path.join(srcPath, 'scss', 'style.scss')
   ])
   .pipe(sass().on('error', sass.logError))

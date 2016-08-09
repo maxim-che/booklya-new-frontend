@@ -28,4 +28,11 @@ function Category($http, apiConfig) {
     });
   };
 
+  this.getSubjects = function(categoryId) {
+    return $http({
+      method: 'GET',
+      url: apiConfig.url + 'categories/subjects?id=' + categoryId 
+    });
+  };
+
 };

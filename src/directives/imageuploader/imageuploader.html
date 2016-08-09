@@ -1,0 +1,32 @@
+<div class="image-uploader">
+
+  <div class="drop-container text-center" ng-click="onClick()" ng-show="!imageData.length">
+    <span class="start-text">
+      <i class="fa fa-arrow-circle-down fa-3x"></i>
+      <br>
+      Перетащите сюда изображение или кликните мышкой
+    </span>
+  </div>
+
+   <image-crop
+     width="{{cropperSize.width}}"
+     height="{{cropperSize.height}}"
+     padding="0"
+     data-shape="square"
+     data-step="imageCropStep"
+     data-result="imageCropResult"
+     data-result-blob="imageCropResultBlob"
+     src="imageData"
+     crop="initCrop"
+     ng-if="imageData.length"
+   ></image-crop>
+
+  <div class="row" ng-if="imageData.length">
+    <div class="col-md-12 text-center">
+      <br>
+      <a href="#" class="btn btn-primary" ng-click="saveImage()">Сохранить</a>
+      <a href="#" class="btn btn-danger" ng-click="cancelImage()">Отменить</a>
+    </div>
+  </div>
+
+</div>

@@ -24,6 +24,9 @@
     "angular-cookie": "^4.1.0",
     "angular-ui-calendar": "^1.0.2",
     "angular-local-storage": "^0.3.0",
-    "angular-ui-bootstrap-datetimepicker": "^1.4.0"
+    "angular-ui-bootstrap-datetimepicker": "^1.4.0",
+    "angular-animate": "^1.5.8",
+    "textAngular": "^1.5.4",
+    "angular-image-crop": "^2.0.0"
   }
 }

@@ -1,0 +1,16 @@
+.image-uploader {
+  width: 100%;
+
+  .drop-container {
+    border: 3px $gray-color-4 dashed;
+    display: table-cell;
+    vertical-align: middle;
+    cursor: pointer;
+    .start-text {
+      color: $gray-color-2;
+      font-family: 'PT Sans';
+    }
+
+  }
+
+}
